@@ -1,1119 +1,630 @@
-<!doctype html >
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
-   class="">
-   <head>
-      <script type="text/javascript">
-         window._currentDevice = 'desktop';
-         window.Parameters = window.Parameters || {
-             AjaxContainer: 'div.dmBody',
-             WrappingContainer: 'div.dmOuter',
-             HomeUrl: 'https://www.globalsalestrategy.com/',
-             AccountUUID: '6266ca0b90ca44ccb5dac0f72b36f569',
-             SystemID: 'US_DIRECT_PRODUCTION',
-             SiteAlias: '76082808',
-             SiteType: atob('RFVEQU9ORQ=='),
-             PublicationDate: 'Wed Jun 14 07:22:15 UTC 2023',
-             ExternalUid: 'looka',
-             IsSiteMultilingual: false,
-             InitialPostAlias: '',
-             InitialDynamicItem: '',
-             DynamicPageInfo: {
-                 isDynamicPage: false,
-                 base64JsonRowData: 'null',
-             },
-             InitialPageAlias: 'home',
-             InitialPageUuid: 'c2243ef358a542adbb5375cd232f818a',
-             InitialEncodedPageAlias: 'aG9tZQ==',
-             CurrentPageUrl: '',
-             IsCurrentHomePage: true,
-             AllowAjax: false,
-             AfterAjaxCommand: null,
-             HomeLinkText: 'Back To Home',
-             UseGalleryModule: false,
-             CurrentThemeName: 'Layout Theme',
-             ThemeVersion: '10090',
-             DefaultPageAlias: '',
-             RemoveDID: true,
-             WidgetStyleID: null,
-             IsHeaderFixed: false,
-             IsHeaderSkinny: false,
-             IsBfs: true,
-             StorePageAlias: 'null',
-             StorePagesUrls: 'e30=',
-             IsNewStore: 'false',
-             StorePath: '',
-             StoreId: 'null',
-             StoreVersion: 0,
-             StoreBaseUrl: '',
-             StoreCleanUrl: true,
-             StoreDisableScrolling: true,
-             IsStoreSuspended: false,
-             NotificationSubDomain: 'globalsalestrategy',
-             HasCustomDomain: true,
-             showCookieNotification: false,
-             cookiesNotificationMarkup: 'null',
-             translatedPageUrl: '',
-             isFastMigrationSite: false,
-             sidebarPosition: 'NA',
-             currentLanguage: 'en',
-             currentLocale: 'en',
-             NavItems: '{}',
-             errors: {
-                 general: 'There was an error connecting to the page.<br/> Make sure you are not offline.',
-                 password: 'Incorrect name/password combination',
-                 tryAgain: 'Try again'
-             },
-             NavigationAreaParams: {
-                 ShowBackToHomeOnInnerPages: true,
-                 NavbarSize: -1,
-                 NavbarLiveHomePage: 'https://www.globalsalestrategy.com/',
-                 BlockContainerSelector: '.dmBody',
-                 NavbarSelector: '#dmNav:has(a)',
-                 SubNavbarSelector: '#subnav_main'
-             },
-             hasCustomCode: true,
-             planID: '7',
-             customTemplateId: 'null',
-             siteTemplateId: 'null',
-             productId: 'DM_DIRECT',
-             disableTracking: false,
-             pageType: 'FROM_SCRATCH',
-             isRuntimeServer: true,
-             isInEditor: false,
-         };
-         
-         window.Parameters.LayoutID = {};
-         window.Parameters.LayoutID[window._currentDevice] = 6;
-         window.Parameters.LayoutVariationID = {};
-         window.Parameters.LayoutVariationID[window._currentDevice] = 5;
-      </script>
-      <!-- Injecting site-wide to the head -->
-      <!-- End Injecting site-wide to the head -->
-      <!-- Inject secured cdn script -->
-      <!-- ========= Meta Tags ========= -->
-      <!-- PWA settings -->
-      <script>
-         function toHash(str) {
-             var hash = 5381, i = str.length;
-             while (i) {
-                 hash = hash * 33 ^ str.charCodeAt(--i)
-             }
-             return hash >>> 0
-         }
-      </script>
-      <script>
-         (function (global) {
-         //const cacheKey = global.cacheKey;
-         const isOffline = 'onLine' in navigator && navigator.onLine === false;
-         const hasServiceWorkerSupport = 'serviceWorker' in navigator;
-         if (isOffline) {
-             console.log('offline mode');
-         }
-         if (!hasServiceWorkerSupport) {
-             console.log('service worker is not supported');
-         }
-         if (hasServiceWorkerSupport && !isOffline) {
-             window.addEventListener('load', function () {
-                 const serviceWorkerPath = '/runtime-service-worker.js?v=3';
-                 navigator.serviceWorker
-                     .register(serviceWorkerPath, { scope: './' })
-                     .then(
-                         function (registration) {
-                             // Registration was successful
-                             console.log(
-                                 'ServiceWorker registration successful with scope: ',
-                                 registration.scope
-                             );
-                         },
-                         function (err) {
-                             // registration failed :(
-                             console.log('ServiceWorker registration failed: ', err);
-                         }
-                     )
-                     .catch(function (err) {
-                         console.log(err);
-                     });
-             });
-         
-             // helper function to refresh the page
-             var refreshPage = (function () {
-                 var refreshing;
-                 return function () {
-                     if (refreshing) return;
-                     // prevent multiple refreshes
-                     var refreshkey = 'refreshed' + location.href;
-                     var prevRefresh = localStorage.getItem(refreshkey);
-                     if (prevRefresh) {
-                         localStorage.removeItem(refreshkey);
-                         if (Date.now() - prevRefresh < 30000) {
-                             return; // dont go into a refresh loop
-                         }
-                     }
-                     refreshing = true;
-                     localStorage.setItem(refreshkey, Date.now());
-                     console.log('refereshing page');
-                     window.location.reload();
-                 };
-             })();
-         
-             function messageServiceWorker(data) {
-                 return new Promise(function (resolve, reject) {
-                     if (navigator.serviceWorker.controller) {
-                         var worker = navigator.serviceWorker.controller;
-                         var messageChannel = new MessageChannel();
-                         messageChannel.port1.onmessage = replyHandler;
-                         worker.postMessage(data, [messageChannel.port2]);
-                         function replyHandler(event) {
-                             resolve(event.data);
-                         }
-                     } else {
-                         resolve();
-                     }
-                 });
-             }
-         }
-         })(window);
-      </script>
-      <!-- Add manifest -->
-      <!-- End PWA settings -->
-      <meta http-equiv="Content-type" content="text/html;charset=utf-8">
-      <meta charset="utf-8">
-      <link rel="canonical" href="https://www.globalsalestrategy.com/">
-      <meta id="view" name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover">
-      <meta name="apple-mobile-web-app-capable" content="yes">
-      <title>Home</title>
-      <!--Add favorites icons-->
-      <link rel="icon" type="image/x-icon" href="https://static.cdn-website.com/runtime/favicon_d1_res.ico"/>
-      <!-- End favorite icons -->
-      <link rel="preconnect" href="https://lirp.cdn-website.com/" crossorigin />
-      <!-- render the required CSS and JS in the head section -->
-      <script>
-         window.SystemID = 'US_DIRECT_PRODUCTION';
-         
-         if(!window.dmAPI) {
-             window.dmAPI = {
-                 registerExternalRuntimeComponent: function() {
-                 },
-                 getCurrentDeviceType: function() {
-                     return window._currentDevice;
-                 }
-             };
-         }
-         
-         if (!window.requestIdleCallback) {
-             window.requestIdleCallback = function (fn) {
-                 setTimeout(fn, 0);
-             }
-         }
-      </script>
-      <!-- loadCSS function -->
-      <script>
-         /**
-          * There are a few <link> tags with CSS resource in them that are preloaded in the page
-          * in each of those there is a "onload" handler which invokes the loaddCSS callback
-          * defined here.
-          * We are monitoring 3 main CSS files - the runtime, the global and the page,
-          * and once all of them are loaded we convert the <link> tag into a valid stylesheet type
-          * which then appends the styles to the page.
-          */
-         (function () {
-           let cssLinks = {};
-           function loadCssLink(link) {
-             link.onload = null;
-             link.rel = "stylesheet";
-             link.type = "text/css";
-           }
-         
-           function checkCss() {
-             if (cssLinks && cssLinks.runtime && cssLinks.global) {
-               loadCssLink(cssLinks.runtime);
-               loadCssLink(cssLinks.global);
-               cssLinks = null;
-             }
-           }
-         
-           function loadCSS(link) {
-             try {
-               var urlParams = new URLSearchParams(window.location.search);
-               var noCSS = !!urlParams.get("nocss");
-               var cssTimeout = urlParams.get("cssTimeout") || 0;
-         
-               if (noCSS) {
-                 return;
-               }
-               if (link.href.includes("d-css-runtime")) {
-                 cssLinks.runtime = link;
-                 checkCss();
-               } else if (link.id === "siteGlobalCss") {
-                 cssLinks.global = link;
-                 checkCss();
-               } else {
-                 requestIdleCallback(function () {
-                   window.setTimeout(function () {
-                     loadCssLink(link);
-                   }, parseInt(cssTimeout, 10));
-                 });
-               }
-             } catch (e) {
-               /* Never fail - this is just a tool for measurements */
-             }
-           }
-           window.loadCSS = window.loadCSS || loadCSS;
-         })();
-      </script>
-      <script data-role="deferred-init" type="text/javascript">
-         /* usage: window.getDeferred(<deferred name>).resolve() or window.getDeferred(<deferred name>).promise.then(...)*/
-         function Def(){this.promise=new Promise((function(a,b){this.resolve=a,this.reject=b}).bind(this))}
-         const defs={};
-         window.getDeferred=function(a){return null==defs[a]&&(defs[a]=new Def),defs[a]}
-         window.waitForDeferred = function (b, a, c) {
-           let d = window?.getDeferred?.(b);
-           d
-             ? d.promise.then(a)
-             : c && ["complete", "interactive"].includes(document.readyState)
-             ? setTimeout(a, 1)
-             : c
-             ? document.addEventListener("DOMContentLoaded", a)
-             : console.error(`Deferred  does not exist`);
-         };
-      </script>
-      <style id="forceCssIncludes">
-         /* This file is auto-generated from a `scss` file with the same name */
-         .videobgwrapper{overflow:hidden;position:absolute;z-index:0;width:100%;height:100%;top:0;left:0;pointer-events:none;border-radius:inherit}.videobgframe{position:absolute;width:101%;height:100%;top:50%;left:50%;transform:translateY(-50%) translateX(-50%);object-fit:fill}#dm video.videobgframe{margin:0}@media (max-width:767px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:80vh}}@media (min-width:1025px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}@media (min-width:768px) and (max-width:1024px){.responsiveTablet .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}#dm [data-show-on-page-only]{display:none!important}
-      </style>
-      <style id="cssVariables" type="text/css">
-      </style>
-      <style id="hideAnimFix">
-         .dmDesktopBody:not(.editGrid) [data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) [data-anim-extended] {
-         visibility: hidden;
-         }
-         .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-extended] {
-         visibility: hidden !important;
-         }
-      </style>
-      <style id="criticalCss">
-         @charset "UTF-8";.display_None,.dmPopupMask{display:none}@font-face{font-family:'Roboto Slab';font-style:normal;font-weight:100;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/robotoslab/v25/BngMUXZYTXPIvIBgJJSb6ufN5qU.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Roboto Slab';font-style:normal;font-weight:200;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/robotoslab/v25/BngMUXZYTXPIvIBgJJSb6ufN5qU.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Roboto Slab';font-style:normal;font-weight:300;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/robotoslab/v25/BngMUXZYTXPIvIBgJJSb6ufN5qU.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:flexslider-icon;src:url(https://static.cdn-website.com/fonts/flexslider-icon.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:FontAwesome;font-display:block;src:url(https://static.cdn-website.com/fonts/fontawesome-webfont.eot?v=6);src:url(https://static.cdn-website.com/fonts/fontawesome-webfont.eot?#iefix&v=6) format("embedded-opentype"),url(https://static.cdn-website.com/fonts/fontawesome-webfont.woff?v=6) format("woff"),url(https://static.cdn-website.com/fonts/fontawesome-webfont.ttf?v=6) format("truetype"),url(https://static.cdn-website.com/fonts/fontawesome-webfont.svg#fontawesomeregular?v=6) format("svg");font-weight:400;font-style:normal}@font-face{font-family:'Roboto Slab';font-style:normal;font-weight:400;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/robotoslab/v25/BngMUXZYTXPIvIBgJJSb6ufN5qU.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'DM Sans';font-style:normal;font-weight:400;font-display:swap;src:url(data:font/woff2;base64,d09GMgABAAAAAEawABEAAAAAofAAAEZLAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGoE0G8M2HIJKBmAAhF4IYAmcDBEICoG/cIGoUAuDVgABNgIkA4caBCAFhGwHhVkMgT0bS5MXxNvnRdSbcNWalTXnn42wYeNgsBfEn42wPQ7IpTnZ//8nJZUxNIkuLYAgTj8PI5ISpVJDr+j94ERThvfqbiKbHCNUBALTDgo6KRC00BKzXKtWKrjwPRMp6urFvO6cHQGnPLrVETI9VSAr1xIyz/NuIhAwGwmzH2PByHRwbvGmSU8fVc2/UJelLYxfUJiK1QWLFMagwFgxyYfhQa5kNttUXc5CiUbe+MrB/+xKS9Utoere2UwLd4T8+XO+yqj6hJX18zE3Hr/e9WWz2fssAhuXMZJ1XpInvrF/vTP7/g+yy4lC0mEFBVKAZMuuxlWhccBCVhEp2p/Hbb3/N6o3opyJCVhYnHIColgYfRGVXnYwkJtG4gx2ClNWxVfJDBGZCtakTamjZ4h+YaV1mCid+Lf1vRp+FwAQtVRqGhAaLLCNQ0hszK/7SnV+by5dh+DUsgqjTk/ZZ4fIJS21vHFJU5SWing4+3b6csjp66TTTLZMQ6aMWzKMye2tTa1M35rtr83wHXF8Az1uSIDlSBi5IFtf+O9cKGT3m0mgEohk2f2vW//dQPAACSI+zDP/WbNOtdrTb1P8rhLTIbpcoNMBmtP/UGqQtZSNlKQUjxCTS/wuch4jySUkF8NKglnFoG6MGd1gVmMm0PqcvbWzbr+sc/qed79mAd6AABLe/35uW4VQRCvXPVmGZDlNDTN9+/O/1NT3ftpd4MhTCgeeQs5OUKpuWEFwgqDKudTAgWxdtS5NMbwrw4RhgnsCc7WlNH3uGSQizuIQhhin8KM2v6ogjNSDUdcWQn/1ue46uZLzqLqV+713vwSK6GbSi0jWuC0Q5H0Y3wpVWVYaJWpXja3dcgNKfjOFbTC7P2D+TWe1/88wZmxvQPbeO/mi2ZS5LRrHy6kN+fVf/89owpfQMAJZM0JeI+F9Cg6ScAAZrxlJsIPw3mNDYkNIXMggsViA/VYbYq4uhjaF7rqruivK6+qQ6ivK5t71iYfvl32zezYAdgqFfJBlC4l1vW+bcHm7WfWfakK+NKnJTQ5C4ikUwg55CjWFCjkSgKfc5+y+PVpIFYcw37nIdbLHnR8OVcUgJFPjIhESIYFwI9RLOi3sH3CZhCLylRD0bf+29wQXtLM2tuEVMWImMoitvfpnV6eRpAffuWMpHY5yQwjBGCOMMMJk+LXLmmlI2G5OcSxmP48OY2qdFtOk49aywyiojCmIqDjSu1/jARHgIFgLrISppQjW+x8ACSWGr9QRpkR4EAEFQtOISocYApDACCQmEUlKQlKcALcTkOMHFN4GVN4D1IsAmpGA1lFAuzkASFddId31gqowsF19r0itPdCNB+ALEQdfuJRXCuJH7+rWAcRIcE82BqBH7uvSAbggmoOEf1zwyhb48NJbJOA8uDyCkQYgQIfYF2OHLIHF/LQeCwvc8NYC8P2YGxoW8inat7X0jn6R/OaxpEcgH9gT3wUGOs2HwpCyei6eBbSCBWvxKbzSbubSHJX+zfzdsMJhYxWjeS4QkzvI5qZiUZ8GaprMsWC4lS67BhQdUTIlvbE61sz3QKcprPK+uwEy5OjwaURt8pbR6hHiqNonaO3zTwBLjvssCVraHyyRd1upwWOifUUvhEg1+fRNFpNN6zC/L/wGkmlWSwbTSyiN+LA4dNxJb79AX3rcdOE5GA8V1Ic+Mn3P30A6P6PlK5bO7cdlB6kf3H7WZ5PS7CzbyzEJcdErK0rWP/Jzoa9twWJv748Bbd2RGE6DmCQ6hZwUsWS4ceXHz38dzjtz0r1ZyclyIIkooU74YoLM595tCzYLC9othgzjHjbCBLVrW8FPe43TmAbCTQqIceuKCouqq0gwE6kIDJoZqAxlYSoKmh0+8fWVEtVA2+yW0mHm7HZc0B3vKcvE7sgxtaHXMivlWucotKGjz1bbFFWXUeIgyTJY6FYGB4+GKgJCGE3xgDgeCYvBgVkcfNaGcrESsdkcaknbEkuRisfOieQuWMS2ZIqVItSoj9CgZmFzpRUOpLWD0IYKrXSUaq8zliFWYHD1EiqxxVIsZYhsxKG0mSoHVMyuxTdEzoAt0HBzlHV1FBIRQ6O8ioGBnlEAgVGI4hEQc7crB0uzBGvgpEoaDSl2mUiuhphbFolCh4LPwVZJddZZNsQHbQZroSXMylkulZlmRZRjl9WyWiqOklWzaq9mJPfYQ3h9+8RQ1EgAI3dOfDnGqPsBfSDVOtVqlU9lxL+Eoam4bVyljf5IP01vpvm0fjSgjnvtFCMUFW8SpJDuRf5d/qmzofZmqkQeJKdk+yFj2skmtuum378n3yAblC2WqWVi6bPSBpKfGy5/3KItQZJO62vX11tvXrdunW3NwTUFq5+url1dudq72u7XL261ftXhVdkrJyx/XJYv2RenF6MWfcac8XE8D50caz6VZYAJKTv7iVHDG3zT/dvPvdvLTciWDLL8vVIoInoofu5FkItipmGVxSCHT4ISJexqtCOM9Lr0V1fKlOl2uardqdZywdZai67Zk8Z71vMme9XnpqFk/6H/RmNk2uy3JNt2e+U66GelmDpV6iEowW1JD18/IRExCRm5wf1ERYpMyih1Gk0pMYm4pJT0YQV3yrgqYQmyxtU6yw+ufKJ8l/Pj6FAD/AfKAwGBIVAYfM0OIDIoPJU5VDPVZWikGyclCSnpddb/Pp48UdjvL9tSwdUwdRUNjyWxlk2Wlu1+StUGfAf9KA7iZ5yHEDAYEUZGRLlFLRMN6Tf05TpQFt+uiT+hIqCAwBAoDJ7sDhFnuxWplBWpwtRraKQkSSnpOsmvvB4QGAKFwV9LpFNkUDoh2/N/lB1qsgHK8bEIUhQcKGLKdTlr9v46GGaDn44KJPElmnt0mC+zFDSlZTO3nnUGaEmi9Vj2EVTENXz9hETEJGTkBqvtPBdyHhdcdKmrqJcyhZom74TL5DLLVCCKZ9uSOU+iMqMa718CrRnQ8qQDgYJR19xEy277G5QBBIEhUBi8y24dEaMs6iwatayjGj4KCFpwBV8/IRExCRm5wWJncXBycfPw8vELCAoJiyBR6NtegiJAEBgChcELp3VcfP2ERMQkZOQGiy6HnoGRiZmFlZ2Dk4ubh5ePX0BQSFgEiULvjhImSRlYoWQJU9llFcWsNZJRSRAG1/D1ExIRk5CRG5yIrhN+wQAh7U45hJOLm4eXj19AUEhYBIlCPz8jUEJ59EQFViXBldQUyJbnrzxemzfedtvJrG7YmvVaCz5QfMSn/C7lB7GTWY51hJrgE1wpR6lJSMnIKVBBR45RUXc17LSi6FIfckYZIwBMBCIogk9CaETEJKRk5HEW0SUmZujbrCg2RkmIhZekSrFn0jMwMjGzsBY7m4OTi5uHl4+/e0XFdW03dt9Mqqxe5Tl6sMZDPCoBtqCQsAgShY7x+LVRTIaQx2WjKnZLAhVEda75qs7XQ75apllzo+mzV7a8Vm+87bY925DxLrcZdp67GQM6LP+ndo3bmqFSjMWixrrdLzHTL4JUuk7pCwMjEzMLa7FrcHBycfPw8vELCAoJiyBR6O+KChT0KKpg+McqmAU3lqU1dWgbwDB1OLrIHmqhKXaCg5OLm4eXj19AUEhYBIlC/1AM91c8Q+FSxg/HWqiNJNYkcUbdMSgFCAgMgcLgh7HrJQhSJdxOaqKU+i4a/uuW/dWU9dS+trQNyLvqZLyYyKaI8hYNyvZ25wIOKAq4k3w1AVE8WJ4gSOAavn5CImISMnKDI9Hs4a4sZSZ1yzSsJzExUNwjuYuUSK9bDhwqOBKMSIZtVoNiUUZ1cGgJPGP56ctTUEdAAYEhUBj8+ewgIrJ9KA/vU2XWS2ZJOZUfSLSRalVJBhXBVGr9BFoCNBAYAoXBJ3bBEmUIAqvJnpuyhFxUc21tAQJzqo4Ro8DEy0cBjQENBIZAYfDCiePiV2ZFv4dQiIhJUlpIRsgxuFWgWJS6CD0MjEzMLKzFTufg5OLm4eXj3305yBUF13E3ipseeOhRCdAFhYRFkKgcRdAa45l9UdsyTmWD5XDF6QKcxIHZMs9TvnHZBsYQBEEYQG/lM+hr+V6XbetdsG3cTiZ23d6+nzyMTh22M1AYoILAECgMPrGzIz5FLhyRIa5Qt7+7KHfpdtTy0bB5DdVE9yj0tNJOn8VhFrPsgSoCDQSGQGHwZEcQ17AQgeTkWgLXO5R1gOyUfD61Hqx5LaEPIp8svkfnfizfchDixxNhNZkiUYmsKXbvdJJQQQEaCAyBwuBvSwLv9uyT2b2aEOSagMGJdWCQoAtcw9dPSERMQkZucCJqOrLk1BVpCLtycHJx84QXPv4KbgQ8giIkLIJEoUssSOLJjAuFje8AsV24WSEqu6S9L3rCDzkeDHGgguRcjKdqs9X5A0Ew3AXYRjgKYzk4cb1mmX5mfTB61JGIzOkR+srAyMTMwlrsIg5OLm4eXj5+AUEhYREkCj0hCj7UTcsyjlmK2avRCwMjEzMLKzsHJxc3Dy8f/3w5nsL1aj1CwiI5oon0oEB3o7jJILmpQHh3wvpty2wMqKMFlKvLpC5ScYs54OTi5uHl4xcQFBIWQaLQtboyKSeFdCunOwFcrA5wn7P7tuCc12x/KYEY0ZIrDscgRL957WQyWAVt0PuRLrOJ5mJXIJzPSxmfyqgy1f/dNLFmcJojwXweC3EtRlrCbimutSzW8VqPDbmVzDYeJ6CKuTi4RuMKtK7x8F72sCfolYGRiZmF9QMrT1yRKiAfSH2mqFZMQ83ewzTph8QcZ6t2gGG7Wxc9dYezUpMQycozZarqgySazlPmZsdz1owQydYII5bmMGc0wdvWInL/UEkHoLCsj9M3QxqMWkk4hvphW2aDYBer2/IYLb5FVKZpMrK/TbEtaxfA+Kuz1jbC7s1OsJTj4uETEBKRFrP/jQUIYmVj5yiI/1cUBkcgObm4JSRVq1Gr3iLpblOuJU1pmDZj1tzXxTBx3k8ZzuGmWWeJKqubCgTNkV24ODbH6EOa+uYRphjpoSYLgSDBBphviwJUZe4c846haDYtfPpgmHYKk8bxQ4hyPMOVVVXVZT0ubbFmj829KFRb70Sq1ASANfhXkRP0TRmRNsoSAyTYMjw5rc3PgTZUObecNc+0GD9/KZ6Z+oOfWsHbA3TgRP8MKwhkoJIytm3kQ3eAgMAQKAw+lKYQQdg9ZSrItBmz5sSr/8vfoSAQEBgChTVcgS2DEIXaU2oMjVoxy4tQo0BAYAgUBn8tu1eCFqj6gLinq03Q1ZCyBQhiZWPnKIj/dxQGRyA5ubjT67+U8EiiWo1a9Ra1dGcTXqPWzq5YjaJuSkNr1INSXbtg+8jWUbcH3E6bCpJAmhP5zBWzjlNmUYXttihqvq2c8nMGsw03hE5y3E53gJ1rJKI+LlUVTBCnqdHS8S/G6QqVkiZqxNmkbG8gMAQKg38pQYauf/SVfi6K6KDZw2m1teWCgF4osKmy5bKebc5ICgef1z1He0wDG2kNox7/xL2BwBAoDN5zzhNbgrjQ0E9VWONPBVc4xmyEXuZ9qKV45vKWu5uXUQnXsJISCLZNPGPY5tkVYcg3Np6n6zs04UJumhY6f7aUAT7w+w0Awe9xMBqM+H+P1wmYR1u3bAzaRzs2bQcUAAQg+yx51QSWZcboJIFwmORCtGGvmBBbn2++Sm9YEQQp4HSMhinxpaaagDDPYJgY27goPND4BK7t+AMMKvN6g0EK2Ntn2VofWw3ZHbEQfMQ0TjFDox4BwGHESFSboFqwiM4y16cKWSaTsAB+u5UAct1lo9vFJZKPDAKmnBcqeq4VesBBtGcb8fD/fRg3ILbdAFMBAPqtewEwyhTCLhQCcpD1PhesGCQpEYsUA/iRUGxKery3O0t98hgtY2SCmDAmlXFRgj7oJkgeRPuxDmNNXcTmsl1cRs3oF5TyhL/vCosJzUnwf/tD9v+lh+8FAA9faN/Lo3xoP/jgrVdDAMwAvC4DAPQu/x7R6xnjT81202w1V60zztlmgYXmOGCSZSaaZ7IpjjniqBnOQvgERCQoNCUVPQMjRqBgUWKYWVjFskmSLEWaJeZb6pRV7rNzcfPIUaCQT5EKlarUqKeBFlr9QxlVR3tdlG71Pxj1sshVi52ww3S77LXbPtdccM9FfW100nKXPHDFcaOMdttp581yx0j9bDLeOBPMxIaRuFg4eIQUpGTkdNQ0tMSCmIQIFSHMIeESxYmXIFW0thzqSJcpQ11OWfJ55cpTrkSpMtnqa6KhRppp7LCmOuugo056aKmnSM2tt8Fqa62zhvGoR5F8BK4JygHZeG0cU8dfPUvzh/TkjM+6vzN2o7b1+OUsK9xcB4i2PxpltiFEd0oQF92BvPfM4mIS4SduQHnZMQT3R6pwoWmXO0prQBXAyfUCEDidiYEApgxiYLBmHYMA9XbFoRMVU4NLcs4EYahmQt/mhMBHfwnCAMya7wFv/y2EWo3OoG6d02fSC2s4yjxHRxqbwlVFuBwDfLYvRaCYGCDTiAyallA5UIqlqYp6hINtqhSfFZOK2Og2IC9YXRh3yZ5bSld5pcG3/VQcTEfytxXJJ0IhafM9TCg+QinGqlqRwMEUGlA+pjoAX3EvlTmv8r8xNmALOpG8SYAdQnYBxRaQe63ou6yQKTKNa76k0q0csZSkiUjPC1D2IvdAqkRANhKDBWoQSPc9AoeRFCjBQBWG0jo/WmKwVY0I5ERQ6oZKsKgexTr+hHCvpdGFlHSQlE/VbtIcrB2hIOOOdW3lM7EsWjrDsWeVqnQisjFWDA7AY7UAbGLATeUFwwRoG3gI9QFQIwglaZMH4jRVzG6JpYlWgExepNzv6ldb4qPgDYqzYea01QCB1Yo8QgzbRpkBTmB31MjbinqK1kFnDHSi1edQVhCiJz319jdHVLcJ3R8g5AVAjIWptGv2C+FuW61Yy5zmnSQIuLaAf0vaYkihZQJTwtu1XRvKNgX0ESyGUgRNMuxEIRWoJKVp3lZgdJTPyKMo4Ipy3HlkA27W5TJELf77Aor2HXvn4alJac0q9kwhgJyPZWfJAqoMWBZxEoKbYN9A2glohAmEt2pQnQb8NPPnRrKNJs017tyjqoDgcuQuJrDZUoi5AjkMVYj5pgwAilAHIiD9Hane3ms0KgF2P7JwgqEGrGBgBhDFkDuMxiKQyTExxkgPqJGBquB1R2FsnrwkmKJEADp7oGIQUDMYaBgCaBkS6BgW0DNsYGA4wMhwQQDDWxoF1n1JyOXOI8uUAF14ClL26JLaoOZ63pjaoeZm2BhU8MoytgNV+yecWGRbFsgEWbCFWKiFmcnCLcIizUvUDEqtFVjSHaJCNb7Smjll1Km7u2pWJOSs5bQPSyyIWtSREfYbPKgXXqkqyUGccIwEq3PB2cohNgWWDjfsgkhI41XTi+poAmiV63AiKskAC/TCQJmPPOcmBeUnAAC4rvJGSFBazmGxgVJq8R4EOCVSn6ckJKfSGMlwGlDQlds5BQGL0ikRJiDYU2K38udLYUp4sh0VcDsHU9woGj4+h+mpAChfVX0T9pnAVA5EMmGw2s/3QJTmyc0C0popwaWB/XIjmoRG4aSzY8fuYhtl1JKIo1oxQTbJJ+XByBo3zZHK7KuqC3TChDQKSddjsOh7Rsarok7VBbmc6IZnKkyJ3PQbSpt8NicrtBIKR+kIeDicyuweG8JguXc5IUzgyADjCrGIQbQHHVn6RrseFAq0sGIS5HTju7aOH/wquQmYIO7AxvTzRBBBy+jVoNQmlLJW7pNKPHnJ0ibZb/1uxS2CAfM6uthRarB3ewYXjTSV6mY3OcV1m1dzYFcTDSJXOaRtq0wspZIEq1LVxPx13zRT7YEzmxWMfJGdQGomlu0C0nLOWOpeRzO/gUsDmwmsCNx+ULqmJ2o96EGMIDa+lzl/OSW8gTs9C4Hf7gb63J5/L1oOjOXBIey8KW8o7SotWngEnqWQmjWiZN+QbdGciZJI4sMcD93n9QK8Wz4W4m1pUbyxXARAlyYkkZyXVlJWkD8eKBeYEmrmbaUpvQDWjCIf2hx3hSgAsggqPkVSVJBQrColTwAeShVJWUFCuep9BXYBwPlDpSGpWiGh2lRqnh2gZSDZibwCFMtV1QNRDUR1EDVYuJp5cLXAsXcDcQzNrQnYPGD8/aYEjhZiixZhC4kdkjh+UgT6S69l0SfY23P4tbjAd4Q4l18BbK4MvNX5gDQ3QpDWoXPmnhAyABjj4ViZAjLfSCkWl9Vlc9kPkCMgZ+BysYzb4/F4Pb4D5A9I6mMC0UJ0LN4FL2pvPOTJgqy1LVjWSouYKrgtiHPtv4/Uv4Px7w5Oc8AP5LsssP6brXXjpG6091Np+g7CGKBE6BzljLEhVirX1UrjfHzRWRV5ley8grYLjLxmsikK2nQ7K8urXbsH2NRFdsDcfOvYotGTxQlK8HjuoWGS2NA5BGmLBJ4vc6tiT34RDR+uYFWkoqNphWaYNtFbgimRTZ3SRNdzamq25lGqnaieYhJNz8m5Qlxa/E1U0lTxVmK5BGNCjCa3X9aika6Pyv9eJ63pynML5OCtEdpHp0qxG2Jb2kpGyBg9WgwRKzhSsCEuFYsgQIpey6iT4frBHefkRFUxKwNcoivNRVH2LSZ8lSQrExzJikcxoeSZNevsbvI0jVuaqVquE8UoTixjRmhQ/6FCt6qYIZn471QiIdGMRjGhskjk8ohC+nAtOFTNMRCgaP6kFFbcfJ7G/SEJihYXkEjuylmZoV9N1u8iTUunSVagUVrh6rThQNJYo7QKGpy5+JWALwz/XJBAYVvAgJT39/DPdyzLCkeemCdEunqRj5z4oce0nM43GWm5wjeavt5nPWpqJVG4bQN5l60F8VvJkdKojy9NOTpEXK/hTSIYsI+qVizcDvVQJ6giuGiLS/gn1qN4atHNSTU/MeFM4Lsfazdfu40BwUNEPF+5roCNrncgzsXkRVNazAtsUZWX5GSpqSBJnrTt3v2aRZ5jLW1lqBR6n+QVUPr8ufYt0TURCEckmgn58LRKvqJw16gJpeVo0GUtPmWWSFkJXKJZLc6L1hh+PqYHbg45ooaINN8RgAt8hgbIcbIryBNzQSUyi7PyofQJ1TLxsshRukd4VAD/YHRActoVcJHsStxqg3lre1D6xOGbpCSAd9mkVvviDklYe1ZEJ/rIcVhgbXkhfU8tUmzPxXE2aEnRwiLMS3ISV1RP+giRWyZhVKh1Y686C2/YOXy50hGE5mvOP1Xrxfbb3YoQSF0kJv+J/jTY+o3TLl73ZV6F73SghBh54heSnYG88mzFhbnsOiWLEh8enOW59gd7z7wXqZLpFtZEUvwh6LJaHqiDqlKpoxqzbSp+LHHPr0K5lXgvPY67pGUmE3cxKzvBpkpfdw+w+rRqv/gunmM89bqLWKk064AxSb1DTvJc+dvSHp5Z6V8olCwG2GJ1KdYAuE7psUaVmcsMDpqkvNPmqlvIlIIbel7u23HlTfMr/QSUmUe/+mpd6yva9+9fZq0enJNAfxs07tw5Q5aaQTkilW3Jb2FD6CsJkM682JsC7M4e9FLhMz5hz82wBtpiaEHO76Q40gCu92JQk9NBLzvyxBev2W1sTgV6X0uj9QAsC0BqpoNirtPt2873ziE6BYotcmCNC/neJ/CggkyA+WNBpFWsLjHIob/pwt9wv9BhyFDiHt/oSzBJxCHXwwMJVUV+s5phIkebTBAXUajOH3C5xKBn6MRUXIUYiVsh+IlCHWH9O9H8a94i2xPh7fm8Jx/9rWV5f9ax3uvOV0uK59ie35Nco9aAHD6mfBYokKNlw7B3SmBOZ4B8XZpV+sCMuRhBqSUBx8I2EySDM9yMhnaV+BhAtw03dirvHzXtI5p5mqnaosAaLrEzntcmiNVzu8sTJQ55G1d4v+vOLjYUEFUHNF+lUe/WqGGhTfMXGjQ1HDV2Z89Om92u8f332vUqXu/OG2fVMmuWawNlpyq9xGhY4Q8zoWaS8GIV9zmG/ht/VP6FP/U3YqHtIJNFNWnuwnbD+MqpsaUyi2vacXfo3Sp+veeCeszXEguiHHVblbJW+Qj16uWM4homvJpf1aQrTYvpyu1KerFJO4puD5J2TZT26UQ7y53pA9TE60X+7e4LJ9Dp1QaChneqDRR+FSZ2+6yp3JQDg7+0an4l8IWuZtDPsTZFkV20/RKU7vfftnjrfXsxtn3hlr1ajvXZumDbnWF13Bbn1ye2Zs1xTHylv4vsdYR/WbbVtQtoFe0kesYvIygqS59z+canNmSuo9cIl7cPL7iFEbluSYHCPRhnRBLBqjLgLuPz++tkiL2kJldvv7GXJ5SaA0GyVyC5iCyDpxkeSkOkprivLlzoQ+7K+la2WbNd261KbzEuqKiw1a5dd6XCCYoUlG13eGAcrM5mY0KyRR9hS54C+mWt++MH7ODQmJ9BOUoliXUQ7FHpkcYp+GKvsyeRg722KmdU4Q7O7gzrSf8NwukuSslbxAe6zPcOge5O9s8fOmAFhh8HYkvC7Bq3Jg9AYeKbcrtQX05Ph/qR0GK+gOmT2mJDSyr9QVBDO2yWXIBMpN2PeDnbCf1a9+5eH3+pupDI1hxzEevdnvOz4NRTs15nMNvvkzXz5HT0KW4jRhIslGKfU6P2TcO4fxibNNkYoVeYaB6UQUmv911lUk+SWBIvdMIgyTstNu8/h1X9wzKvpiuvH2Wp26Od8+HFzl4efdkl71JuWAdsibVpMuWtluegiRdsLdPXqy9aXlxwbZTUIhLgB/7gq38WMQBmcIJC2uzcbnjkeFibnnWfAPX+OPL5m5Nghpj0dBmoFPR9135RT4R/0bcRTo7v2evVzyBniIoyxiKMsRPoLZH1rcit232rJEU7x1Y7S29l2jMflDp6D86JDDUsntp/xU6O3yQbyeSVKhh3yxoecTExoA4tUhGHtsxzYqAeQCHsKcULuNtuNvlQ9KBhJTO1n/YNtzT7hvfXpJYOdOU1xHOstR7K2Q6b+2na3N8OO6la16M4VT/Qacoixy9+MLpn2eINtbuHuNc0LLWrV4bC6lVLHQ1rBEldlavKUMWvXQQ1UFPVorXXPnd9riPH33DHr0MwdDfull8e3sPu0M1yuNwiXMys3Uf7hpub/SODNenFz3bOr6u5nCb87k4Y7ItELH2tMNHRuXZW5+f2ksXumV2xVtvq2tEooBmgxil7s10A13ic8ycz2dyYCAJqzAYpEE0mlRlvSIm/J7KUm5sy5896seGnOrc/l/+KLUMdxbN9Su29K3eu1PVd+P84Df3jFE8WjPYolNSnitxNzNTTdGikuTk0/HRNKi204PCpBUfeI6UIdw9s7adpa59X3SnsA/3dpAJ60WrRKidyirWlfHdFhEXbRCvJJlOnoeay3fmZccOCWHfXiE1Tc2qetgzTw6XnxLo6h62aHZsF5Cp1rFqzzlepWR9LrtKQ/q2IxL5qLwJeL4FL7oLI3pUS21bES+CLYbQN0mifV/Ec9oH+m/Eolxyf8jcCqqjRoIw2agN7uc27KRQFIadTu5Wh7d0bm61RxQAwfd+tuZjFiiKbIRf5u2iYlLx+qP2OLWaj4P//aiLHf/OnAGXcYEcbSdagpG5HycytpXWbfYTbAuJ4YJO6gunu1Fnq7GEhD8YrtJjboRapvvLkj1YWuP2OWUCoVgE7apXaqlnhwh/OyvpxEyCVR4veyvXKJU6TSh1O60z/XXIBuYlcWlKKMvEePbIk/iE11lAT9XqT0YYx6sM4sqRXzy2cORadrL1cG5k5Vvoj4+RX9UD4SDj+cngwTJ8dq37Zdtgm4H9X/R2dPJI/kp/4LvF9LHmUPczm387+/Y3kaM1oTeK3N7LLJfawgiLetUcUCUL+DyboEwoQoavbV79xps1hNyhRxc4QAhJxPpBOt8WUzulhotKoRRWwstwryegjz/AFO9e/ZUJ+YQUidHV5q7fOtsF2QAorVlcFLQTNV0G0fPm9arMRbYB0aUv2jKjAkbpQHk+P6B4VycjuurC9GZw6Xet4XSPPtAUIo5HG7ihFdrEQ1uWtwU7yBX2tbqYlodw+y+86T6m6wwaEbHWYe51Oc0+b3Y+rnDJxQK8XB5wyVT5CcwUT67Baezweh3wVWHhpNMcVes6t0ogIoTQAgnAdCJFI41YNheaSy+KmLB6TbMN4jS09rXanJa58Vk2dd83ydUcMRlzlkokkYsgPUinzh69Zy3T3Io4e3Ono7bHjykQ5554swN4gMyRKvpRQvrK1EkOkuH/gKIX2LcVwVO6TKimjURkAVZ7AAKD+4cDLmVirFez2eiw9bVYCT1t1jRbmjE7FChmJ8io0iPx2QAF30FWnzDF8JqKfZg86HdWHnJgzhGM2RIXz+A951HJs+SH57GdEoqJXsn/oqZsZdENimbta6XKkygyodmGhdXv4j4l8KvCCXyn1Vskgsfg9KJb5mU4p84ZkIAxMadRTgHZKrZmKlqgCCggkAWkJiGTW9W7Y6/e5z1PAjqhKG0o1tZcFOM+sslXFQhnSJXEOg6PO4bCL2Zx5tvhV6qMU6ROcFXH2vAL0jVRJBnPMwwW8uTwrZWd2Yg1ynnrj8/OpSz/fymn+jZGx726c53h+sZSFNZEnIOs65k2IkKsuFrbEK1aZKHn1s7QaiDTSTXNb3EazR1LqO2NSQpldyPDqCGAIpzNQsO2ZfgclflgXn4m2Q9Yer9fW0wGheSuCiZ0ASFqEogQ5GfdriiHi+cIqADkW+Pcpr/U+T9GvyevZt8oufvSPObt0ElIopYbvi0mhjILKrrzzzzkHd9Aq6WgwfvxnkwnFU1Z9dzIRwPx6wvHL9tTF4EbTn9+lTG8q3wyL1RzD78uZikTgSxPOmMP5VdIvTor8CNsH5HTFKXiUUoHPELp0SdYdMcDeMCyz/K4JBrsn/BlNI1dd7ER13ICE8yVEkZiw3SUwM98byXKFFtv1BmBhsdRaeGSJtzAktVX7A956zyw8gDTJpDOKi36N/uhfiGsZ9hYh0/tZoZbErEBA9R+NwiPkXV7jWQDrZEUfP3N4q06GaixO1IswAlyLOtmgdSFJiYKQlB8fmnX6ifzTMAtnQ6QBqw3vyILdtlBuCAtlLyaW7MX25sorFRocuMMMp1xjRp+tCuqqixVuo4HKb8f+F94/NH1Bua+q9NDuD1R6fff6ZM/61Prg7v+Flg1OTsETR25lRMdMbJug72WaofMa85dfWs4sPHcyOrJm/eAK+AtROfJEfQ7a2g7NQeX+2U1zlVr9y6Fsj19Azj3IgE/SCqdM5AO0okpColA7RP+bCZsT5pnweYcwT2l3mC12u1Jut/vKDvvFKOCTynxandznl2gAh05ep71ZAalWBltByGGTy+w2CLRZpTQzvpHGhltaAGE4Ht+QIhgpRliqYW0/TWv7mhQLmIR1faDp+uGfFtJdiQ62cbvZMF4KmVDd6q7adn2zirdrsUL2Q5FD4EMMtXVqKL44nQYtS5MdLTVTflRTznQ0K6w1GXiQ6QuRJOkzKv/jKZRrMA3ssujlE2YjAquDFdqqpAKCabnMqwAMoaFJX9Rp1FSnDJ5NA01tgT9qJ9NkeiD8c3afSsfEG9Ug3ej/oAp1qDAZ36v0VCVRo08trDT1tROyim9XUjwd0gAZWlGHvrPFsRlhulJ6MLlwMdgDjS6tDdnjam2o3vOq02L0Nu3PfG51GibNaZ2tHjYZmlsclYScEAhRGRajUDkhEmEiqQglBMR6Vnc//j30+Eqegom0qkDabCUXnV9rCajUAFWnRNE6JUCplRZq7XlykdUM0q0qeMhKWgETYbLZcJMJIKwQ5fXgZjiI4HgQgc0eHFEwWXFQnsHtKxtnmhrPb2xudjgZv5rKSjkhEmMiqRglBHImvyKJRLLIniuKCCXVpWVJRXv0k5qyovv5QJNDaoNAgxWUCOf8Wml6R6t5njYjWocDwhYUSTgFLYUyobTQWcBZWFj49yBkQPQWLWGQFAsuTvs0XVqB6T2nkvajqpEr5B8yrcz+ypLmZ4PsgbGyJ8c0aWqdaaG4uivZNOab1/2NoegUfa+TJmdlH9jqYe+1tmTnmLd9zIO+Izh4PfxJIVagb3f2vNk0SlsQrdoOYQWFEk5BrIgrNjr3NuIg4Gk6JrwVP71szLt0zI2+Ixi6HmmjdEfP2zdrSA6DrWZw1J8qLkCLDZNVocn8rCxzOutOVA0u+bjMlPQ7+QhkwAwNKwAZw/tRMXA28/lifTXrpBV0YZCVQEyVZm2kRmmz1Sl1UYgEo21CbFoD91MsvObqzlfXYO+yZ7A5yXC1rVYF56BbRTeLyHyhWF+dd9IKujHQSsDmSqaWrlVur1nIYRTTnNFxZEbx5m9L2m+Wlt1sZ8o8X1ZafcBXKebgipBkq3mLKXtVaM4gPHdwZejOFssjmL0yKCqRe0TndjqHSocHvC8Lz1XO4CLwBreRzzyde3JfEDGi0Q05F8uGLy4vSOS8FQ04LT9/n3s2SuWMdL61OxDdqX0znQbkqwiEZkcjbVe3bet4la6anTNy92xq7HgYDtbRUAgfxjoW9CQcIJ1lLx8ycYcm4InnePxDLwe5AgQM4HzRy7LC/YfDAY3z2WnPaZyA4PB+o/QVER9Xq59MOIXvSYsOZALUzmPTjqpBhdMge1d4DwGwn3CVDRwK4z03AU8McQWHBoKcfhJWEQNnRpGkLolWGAdQCCKjZ2T8ISbEilp486q7vI95+RlL9ZcT9OWiVKvTQSxyWbRwkmTzoYE0Q18h7vHJ8/yPBjl6E5MQp2TyPsYBl1SPTnWBulHfjG+m+vclRzXwxDcjHaTejjaIp6zsyntDmn3OO/vc8aW6rHMipfSxcwHmuaKHqYafxmBNC4oK5L8LPk36kvjs2vAcR6z5nJljq4kQWUmkIRo8fB8qnX/9i+DEcZPx+HjZ2PX5pSUzbhwOHvmbyXwiVZr/zqkK07ly3n6TaV/To1B+TXZnbzQMgP4vcmr+qFlNXG+Gu1mqapYP8QWy6hoZzkqeHGb+f+e3NYf7Vy4NxAzwdNehBlnil8mPl5ZtMzp0trsDoM04/y/Ix8rPn+8Dowu6X9kyYNmBVfF1r/EEw8vi84MPwCwWm52XBT3Mp5YlwsGa1fGyA53L+jJR9pdGVZV2OeURP+H3dpnix3LtQhCIJlUQFtcpYgK3EHXZyydcyvLHba+fMh2z2nJrcGcraje+bPmUP3IUzONfdSRH64/VJ1+x7jAfZYzETy2fvkK94gAfYgfezX33pOfke7nvuW8jjcOKOhpzN2wcNChwRqv7tIo9409Ohod/yozLy7Gd2Mcv+XwXU3oDvgvf+dWvkty5+fqf16ear01d+5Nn2tzI106k5euwAZSFfbrDuePTT1V/kkVcIuorbxe+HQnML+CaISYGw8DCb7o9sQrKLVB2JcTw+OWdUw7jBZT7xj+z3H330IfDe5aY4EsTcaYQR9SRVasqGuwHr8ZOLJbiFUJSoxGRPiyVYjmCWNPigbHSOUa/V+5QvzYpL6/XqAODZyFrMSg0pFZugVPNLQ/cTMfXr33c/LwvfCDVRLy3YfT23Nb2ESo8UG8oaNOGPYSi/5YV/zuhAlxU1KMrq4c8VVLtokL/YximLGyq55UsLCXnhYTrhqdPrBl0dC4Bn4vRxKpNtoQ4OM/6Q4SLM8QeqbQSbtIGLGrSKIirtVrrX2wm3qIxJ2yYv81TnFdoFzgSoYDWWyHGCgOP7eBJi3klYu7k5c8W/BkRu8WenoEn28TieKfi94tglQ8DQhVD33xv44DejZy6bdn+FKCkDQZVNAX4rpaQl/2XhSVXuF8JQ1ndPK+im5FX4Bh7MUn/ejkvY5ZHId0Z/vxlYNb4Vu9Psorcky726GLb7dmIDb7O7ZmpZ+jQwVTags9UpSaITE+nRqxu4Ca2eMld8SS505UECGcyTu66efGguQYwpgnCmKrRmsl2z+OEexKRSY2BYCho1Rhri2j340h7ZeN9lYlWq6JGY1mD1piMEQ11iqj34VUxgqAZJ83TMHoxWVZbzH5+kYHqUAdY1HLJHGanCNGERiRaHezI7c2trAYZmU9mKtpnze5Ej6qBGwDNEDkPj9ncmEXoep0LuHGwwvS6hT3C5e5jc/bVidYZiDoNpeEQa92UOzD1MoUXjK+bun3JYh3PY42/M+fzfhpxUn2BfaGHuLB6JgeSFGKmwL65siOigZks9qGbypoGxGCFFFYu1aP9mFwpd2g01Sz+Sbx/nSmf9yWYAOPmcRZr3qK+gnuU5YViEH+lRPy9QvG9WPKxQvHxh2xGgS6HnV9cUDDP8JugQHAzjxdT1pbyru8WVm4vX2F1GOaUzzq/O4kv/MH+WXvtJ2TbdSSL1M1V8QYVikGeeq4OJ4Xp25o8O6chQ3nuWoFuisUN5vIXiDZ/HhesrFQrM1u9WiA8jc/IcA+rmhIGI1LL3OkcOpeZiRx4Jdf88VJ3UpjCqRHTI/+co/Xg3g57cRuKHHs5cmwt+eepw+V5Ff5YsT9L8GUrUpw6NJMe9NJqbKKXtzvGohx6lFlm5cDvvV53VwrYglCOJygzH6+x4W5o3m6a+dv1O/0Z/lO2Kj/xi9zEzv/sK/SehrQ7eb6YOiHKrWOUfetfy9bthfXB5p9X7rnK/6oqf1HIJ8S+FpXsCT27HwnbGgnb7InhcSr0NVr/WcjfuYxt76WmrbU4T4y9BVs6cQTNg5fHyM3ooCQTAcL7qPImssY7hA2TtjGMfxdMTyfAJnbGwX+dywAG8258xpsfTy5b7abHD0bWy3FkN0AnQoD5tY0AvzyWEjecG1GsbY47UamG5f+/srgneQH6p4jgRvjapqBH3gU/Iw3+KT/PePjOT9gCi0tmfd+9On5Asm3GeoQQuBHF2qYcNVxynorEjfC1pTgF8BH2GzdjPoXvDa622EJwfzpPjPi34qO/ILRKIpG4Wt9CitljzcFPrvV1T9pYvX3Zx+pGd/FELmQE4mbFpBTKAA2fHyJxtb6FtJrXQzmAqI4P5vUiabfW5+54X/wAx1usAKbS8t83koWvYEGD81R3un98BAFRoAORsiJh16HwLSjhBoXurPz+wmcdA1uB0OQjQNZKVsiGDrSMhLQzM1kPFv6MIkO2BM2ig0NYjgGJ7lTXE2Le7Vrcm6oDJ8MA852+jK5N4VcaLsVON/FB1qLl7Aa/MsmK7TFPk8hzIMvwqOh+0/AGjLqKT23q9pntjT3yGI8+HWilQ6J+iQG1Yl0SGra17isv4f9/AArvSAnKEJMSbjYCMtLRisyEFzJMhBED1KUrI7w10G6h2likJomj0LcTZqiPZqYpRt1UAi2XKloGIAoG6kNQ0cNigAFWk+B645BmaSi/hWQ9VN4ecM72+8L//0c+gtFQicnALXxQQUhRyU5qyte0dVMD61cBq37iIZJ/rJKkOOcxTgHrKxuY0oYGe2G5EvFzSKIHUNEoKJPY1nSrZSdARSkTq8p59GI3lZrVOUwx59zJlGv1EGoCto9sv9iKSGMiu0ZMUjHN7gAcIh+eVGVJ8J0Z6wFD6/8tEFwNBVWtGrgdKhO+HSUXJJgRdfR74bxWrRDFRhAT26K9wRIylGQUycE5LVmp1XLAEDrqurkGhgulyC3C7QDGtc0z8xJaT0HTuEMgym5aBXfpBxvg+JrJa4ALk6lQpcpuKCJQh2tX3Os7kO5tf6hLWMry7o4q11ehJ5oewrvYUKkWHDzMh408eiPb2FCJQK/07AflwXqeG+kOfxf6hFBDT509uWsHdAAcF+PSBofjkTMI8PMmYa+AzQeAXVj+SbrUOEhOXfKt2OLoj1/Ktvt1wYJNtLEtTmBBUQ5ivU689/tjf86YnTrKegDsCbjRlWDUZOD+XsAo4ZTZso71U0cEB40bx+YksK2QbTGeCWoreom/a+N7SJq11/oto1qN3YxrhlafaIgFYBxyAAghaRgeK5o5FAaYH53Xt9cbnNONE4pTPqtrz3rMwzh5Kjl2yLM41NUNl3mfjFIIAKhDglsScZBnpAusRci+ijWoh7NL0uMVIkepH+4CMmJXO+8M3//CDfE7QkZIEJEE9/m3tjayjlJlDKi0giqyIUnaJgOyO1haoq0AiXbyib6MiGBb+XaFTyEVuwMjCPZEpGCqk1hG7GSrYdE+6XYzN7jlUG9QpaCqpq64pxPHfCqmLN+ldqpzuCHTu7r/QmTlERpXqLO27fIXk+U0HeQaIzOGEwp6kHW3o6SEXuuzc6Pv75A8fXb3yf0nN1cX5/u2zGPf1GlMqB7X+DQ8zTtVmURAvlQ2WneJnmwVhp1GL2Kxumo5kA2ET54wynouksXKbbyG9CKKyC5GmhQ0Ub+cTp7ou2HDKuAO5EJEseokgzVx/6+s7FhS5JM4CgLE+IlSU03aNzJfj/kiNqsH81XZ4Myt3Kvdc2dvsItxiKh06mR4i0ELbnDdGkXP0qk2I62zOgpN5ILZh1gpW4lfekmo1ENBb+Kyj0Q0/jbVlXF261bXqbq4AU4iGMTBhWiJZ74QqMoqvRpERTAwKnRgSycrU3qvNC1cpqEfNcM0k+eEVwH8fdisE1vWhPU858MFRMksLVjv4LyQ07BNYGAAR8V39Ct1kCw/XCnVvwLO+G29zk+e3d+enaxX21XftU1d2iknnOP1Sl/Ew3otQNHaqyVe2Jcjo5PbJhcMUK5uBJidlq2UckViNp+y1teSo2YdC5DYaKHl4FMJAxqYZTf7dmB21LWz1v44Gzv2NZPig+ZVSWQSu0bPAbNORwWZQHGhRXAEK5NClbGyBpcJBxjF5j5Hgl57F7qAmgf6A9mbSCifW7Zq7TgLJU9EwxWQxyNPAkdxKjcTf3a7dS3TtClvdSxGSMQrIPKVakaMhtjyGGDI4uZJguibmAzqO597ZqnJ7cNn5mX+ZOF97XIR+q22DUhT2rXMYS7zu/OqwfcGKZ/AmaqD5PiThXrS4SBnNYZIkBDmbyS7tccdye2v++PxcVumsamKPI0D304l4RS3FOQXkAOV6xYHQ4ElwqN6tNvYWho281UjAB4HWO/yjQjz9IGI4IKFN85/HOrdgCyK0pIE4FUBr9YIwGsJcIyHFjvaDiq7OWAELRjbZYMwSG7EQmQgGW4Ta0fHTJpvLeikvliFdLKwiZ7mXlsdjO3lQkj2qp3qG0uwj7fhPFALc4JYQwArQ0K44oXSdTyU/ekn7iI5cSryJGJk1k2+TsXPwIpuBUnpOjqNTODDxATyEkh2Dc1YVyVP5zjWg0rfrvvd/opjQ25JK8ZxKp6ReOCkds6QjLdCfFDMx46LW74cykUpo6MEgmVHpIROjUuKrcYdQZK4N//tIi4H8Q9Ga7wQIaMjXh/0mLa9+l7I1t4BSL4O6rCGqUzzBG4SbfZUPIYPPV9ywbUf33pxBgOO+PhBDy3cwitgkAbAeS/UHPezf0pTloLSZ6tYbKI2Q6W0ru7JDd2TxE8RprEyhII6AaiCrNUGWbefsfdctvPWnSP8qxFNKJsYNw+bnBgG2tr11Nu0jJmmOo/uszTqMmo50Qsu8jbwRxPzV16kDUQJE3yM/BtlyqmkRoVqZ68zZT8ltMDewnqNIzil9mio2Sa8U18wT1iYfzlUyg/IeMAGZh8bEVRp1okPwjpU4FraWUl86qEqujyhpmKyO8MtpK5xqrjblIgz4/S1PFSHdWDESlWOOpngbWxbWvNYe1PNzsiHvmJ23ponmYWGZZ58vecpz5Bcfjudz+dtnY35aCccZs0ua7jNFVgMPP6JJRDpLiu7M87c8FYZlltKLVbFbvNcXMQwzwX24suGMp81bJTD4rfzXGCOkY1NEq/k/f1ZiKw/yzOERj3FmybwzBe4FhzYC+AinjxcRbatCrEQYX/b7UAobJss46X//sN/UsitC8yoSVq1ZJ6mRhTSwMFApok+WdW0skm7U6tzmb49G3mdAONYczpWSRT4nqP0UlWyLmnE7ccL/Mwfj5/jAJ7rtNBWQTinK9eqptuNqMgAh02YxWoTYR8mFvaOxspwZkybjZXBaXY/X1Ktjsi6T8RVerNVCYyLf2OYm/wTSI1p1M82VGV7McEj+dhhE2kHMhOMNrOqmq1WxIMfbvT3VvUu+bdwyVP2CefHCvjNKH7c92VBcu/nfrPfXF9dXpyfnRyXw3LYVkfhxyqW+FA8BIheGEWFGTujGR4IwpbJ7X8c8FKXf/yLNk5Ow2fM5jGeVoSdqbyR+ej8ABghxAjKo6sxCsTQom+XICQCgaa6Q5sU+C22rnF/AcAOG5G7Rys2Rb/Xm0MlP0IfgzRlN7x4kKUgzSEdsgFWspq1Tl/repi4cQqu4+2XoIfre2nCTBgxguFJ/ZMRiU0T0m8k5H3ys+QcgumUlS2empE4fqqKOPC2k1u6KQJWh+IZAKDNzjqYeA8KKhOmRJIEXPpPO3X/9W7NdWI0gWOAGOOVLeiSMxBErIZl0EqDb4vrAmCSF+YXaow1WUE4qwQ1A0di0doqpjRnJWvCUtQ0dd00XfLhGS45Y6p8rCNBRYsXsKMfhLVocSPUx94eHXXvjoUVlSJD5CsA/B+hh7yjGF8juCAINXuYaY3RUxUJaCqlY0IQN5d3AKuqwIxLb+Iw8DYimSp57DtiRy6gBIQjxOgmADYsxoa+BzjKu3UcBRdn4j0IoEz7YPFsz7GD6e2xsQOzgl1RoBRPO8cicuEVeIjrVeXiIMpHgaMukOFVIL76JroDcLIU7uu0LjGJDu5UyeiqlwRCeLFOP6RwFrg9v9CTCBsyP6P88JpcT86S4cfFLg8vN4KRvKrCEItt+06fver4a/khCSI4hnGVFsWENonUuupnAIEQ7nd3b3KhL6L+VtrhPBoaL7mRqxbRHTLF/qwYE91YRchRtH0Fwdcx4qsVlesjCQp/6CuHAKDcV4mLAh0TgK2bnTVqUPielTQP+7Ev12rdV2l+d52v98x3sOGNt7nmIDcfKqbQdm5SgiBbIGJrFVPmD4BZnpPCO2R+C3FxGzPLlarU1TQoiX3nm11gfU1KjTJcYLgXvmrW+8+Oxw7gIG/LPA5dU5UecxqnYR6zh5c78AyRE1s2mnIKMohEDLA/QMYNPnf3Qc6NdgCrlCkLGndgka4bhXMdyk5rwLk9DX74jzOrriQX5EEQfdHuSaqhabdIFvOAOex9lOiyrKixXWchXNSghIVFHY7bQHo6GFdldaRd0dDeFrcucxbuKsnXHry2960lygOJDpppyR8GQKYu11gBEpdklvFZ3PwdUjADGxt5Hfew9xZhDIKpUrdFs4KEl9qaNvx8dZe8rL5swoI2HPDYz5MoSCXpDeokUE69gyNsM1AQytF2IvA3yPAeyd6JQ82m5DDsZ17HVImvXmjvfnsLSQGEn0dluCqBDoDwNuXB2SOVbXD8n7hxYVggHc4k1JDElhWZ3qT1ESGE5/wGsUviBPrJSADY+xb20JUG57gfrbxZMS4IAbn8aTxeJjjOPl0Zn5nbCLiq2ghWEckwwqLkVD5p3BdhN7bIWfvb1zurCGC4+Sfo1OAINwIRIeJ4zDbQBTy+oEGabA5wP9VPfD09qSvfoxTJ7a8n96f381gd62Mae6VfUpe6DpsFwbkwd5naPk0FXz1A5SGStc1n8wZPiaAvcLwuTGNgqMKq8QoSId8uVvUWLuVCw1e/eBzbobKKAtXUyAts4moi44fa4rbxgDfQ8xWNIr09sR71sNiVav4MyRefPPuaf313c3oUka6ty+2GTF3xiH/JO3XrQwBf9/KtzbA3+/Ct6/ccP40xQ6oxCSEXdg8GnhDJxoGnuWtUEuBPfrH0XVUGnsOsiDM89LDhACKKQqZdcfWfVmBHF3tTmVSGmQ31Pkva+/80oQgXAuDh7F8wVmvuijYo6ysIwQ+o2LFNF8nLjP4ie2HZcZefgodl/w6TSooyXSE99zNC8eL7WiOFp9HNaJJtPBFA2DyhDPQfleB9XTGK5M73q4uTfVvnsbqr77ak4Jq0vJz09w75zPaqxUPCxeBAodajZCtXCuE5BiIzsizl2odtyeZpjWkc+jIPyDlSnfMfJOHFUw8tpi6YvT0ocMfqyzYhdROHv70TYO5JP2/g/ukS3vBC0MN8QfEEH2ywGOVui9g7tpaDpXqscS2uekZjCyhCA5gxYfB3famRb3wgZEOTyEpGf5JFJGN6jZdGa+zOZJ7mo4+boP5amMDyfMLthL564e5i45Gp+SfhW/8ki64AsCfTCfY2eQEmumhboeKmi4IB20g0Dxtm+2Im3hszFEigtxOXsSvbtFEKV+xhkvSVIPn0HeWDyMyN8GgD8M9OvaQkt76Vp2/l+AP76oVjduBvU/8eIADoxAmZZMGZpMT+N1dCvAQAt1aKxkkI1//T1h5t/39raeMEADYMAACBt1xpIu8JQGoIiP9cP2kob2cxrvJj4kFazduLLMquecXP4TaBF1CpfIvBSr+XAJ7pM4JnGkwzdM0Sj4j4UbhdN7/7IWUx5UxBWzSgqc4MdCr0hEXf7kzRtTJ0EheNNo9ynKBttbA8pfDRUomuQRw/Jh+k3bibygq7wS4LSbleyUc3XGjt3D5Id597afrksL3mvs+zmp+pLqlWMAZyZwV68z5Ws1QU8eMKqUGgH29r2nLnq8jO4slQgbVLXZrLA3U/g+yuaDTqFuWo4CahG4XOQUHZLKjbWWJm5JpnNE9c6wtpM472YCtN2yYyZtd0Z+njFSgTaVMXnY2z3iXC2rnUnxXuSHwL7ATxB1SNd/MnJ80pCYFqdH7KtJCW++oMM3NG0sPRjaU+LKtV1CcknteRVgQrwWB+FPAdshe74JQ7ujAEA11V3rW2HBWNERc5UB7TCzWfF4QHwOPbyFVoUureTNoGB1TPREyrBOin1COjfOPzYXqFQDQnX+Q9dtmt4chfoZ0mpu2E1sM9WBA+vsntXaZ6hTRb9NCKz08JgwRdKphu7hg5V+L/KSMFpocyMTEY9dn4jUoVGj3wCMBrlTjKkLBIFcYDWL5eCAQMgKsFAlrwANAC4fluiNhXiLnnuxHibNuNZDRjN5Ysvt3Y9BIUcY0DtNKt13eSypLeVVNdtF6Vbuow6/pYtGPWURfDOzZc6PDZ/DfC0/HBYmosORmO3aZiJcpMNFVPrDnOak1jdIzRcFJJiEInHNOJUHgPlpKsofgIcV+PW0CPVc7wXOkn3amtyBrlEqbWtxWif7dMx3pBe8zK2ISYabkkJmeaHDdGT2lamb079mTNJNNI6d9t4IaU0Q01Td18b8L2H7XGUNPVmJIdwZ7hBN0qjXdRSQ0vqSD0ySgIZyEVMrGQr27aSWN4uzIxY1qJp2B4gmRHLbUzSl7fu5MZBhfqnxdn+bF/DSDEqWA4oYn1mtpgklBhmjF5JVxzJ512RoRIUaKddc55F8Qws4TQvuEtxLnokpaumGyjTeK9kyDxDa7um6uuaeW6FKnS2L1Rh0trbbXTRgftLeLuQkeP17J1upGFO8t586hSN3TTQ0/d5b8llj+ke+p7KdZbX/30sVh/m5V4r1SZcqNVqDTAIIMNVKVajXreqlXfQYfMt4Di7bmEt7b6R0VHHxZiIw7iwl5fffOdjISB0VqkpYIsccRIImxyGQSEGmgknYM0PNhiq0xHHbPNdjvstNoa+x3AwkeEjwQwzD6cCGG4GRGB2Acf7cIIFGCqxpapGzFwBeMZZYSxxhhnqIZeRoKkkUVuvPtumsDptntuRXGCERXRkTJSRepIE2nH6na+93/3R/J6X36OtPvfaLz753cLC2ZzlVtiltuXFtZX4pYbdSQWhpzZyIcZJ7nw0uIqV6DTLy9sTH5nJ/37Px9JcrJx99dPJ6Zblqbzq5Ou/zrLIRHmSRCNfWk+7xq9wX533d597M1YWt9K5VvCycwGpC/yit7iouTXAJzMPQgdGYbIWffDpV07IR8helf3sdeCxpRDo/Mz/+t/8yRPYBA0INLBMSZQjkZJcIVOR+0cg9/9CNCMmVpLVUYZ4BIVTC7ln3pbQWQm8M/+kdhXc7jV9GPUEDGYSvR/o/051H4zd6XmGLjqAAAA) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'DM Sans';font-style:italic;font-weight:400;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/dmsans/v11/rP2Fp2ywxg089UriCZa4Hz-D.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Alata;font-style:normal;font-weight:400;font-display:swap;src:url(data:font/woff2;base64,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) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Roboto Slab';font-style:normal;font-weight:500;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/robotoslab/v25/BngMUXZYTXPIvIBgJJSb6ufN5qU.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Roboto Slab';font-style:normal;font-weight:600;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/robotoslab/v25/BngMUXZYTXPIvIBgJJSb6ufN5qU.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Roboto Slab';font-style:normal;font-weight:700;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/robotoslab/v25/BngMUXZYTXPIvIBgJJSb6ufN5qU.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'DM Sans';font-style:normal;font-weight:700;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/dmsans/v11/rP2Cp2ywxg089UriASitCBimCw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Roboto Slab';font-style:normal;font-weight:800;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/robotoslab/v25/BngMUXZYTXPIvIBgJJSb6ufN5qU.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Roboto Slab';font-style:normal;font-weight:900;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/robotoslab/v25/BngMUXZYTXPIvIBgJJSb6ufN5qU.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}.dmInner{min-height:100vh!important;position:relative;min-width:768px!important}@media (hover:none) and (pointer:coarse){#dmRoot #dm .dmOuter :not(.dmInner){background-attachment:scroll!important}}.dmDisplay_None{display:none!important}.clearfix:after{clear:both;visibility:hidden;line-height:0;height:0}.clearfix:after,.clearfix:before{content:' ';display:table}.clearfix{display:inline-block}#dm .dmWidget .icon{font-size:26px}body.dmRoot #dm .dmOuter .dmInner .dmWidget .icon.hasFontIcon{height:26px;margin-top:-13px;line-height:normal;text-align:center;background-image:none}.dmRoot .hasFontIcon{background-image:none!important}.dmPopupMask{position:fixed;margin:0;width:10px;z-index:1000000999;top:0;left:0}#dmRoot .dmPopup,.dmPopup,.dmPopupClose:before,[data-display-type=block]{display:block}.dmPopup{padding:10px;text-align:left;position:fixed;margin:0 10px;top:10px;left:0;width:93%;z-index:1000009999!important;box-sizing:border-box;background:#f5f5f5;overflow-y:auto;height:100%}.dmPopup .dmPopupTitle{text-align:left;font:700 19px Helvetica,Arial;margin:20px 20px 35px;color:#999}#dmPopup{opacity:0}.dmPopupClose,.dmPopupClose:before{position:absolute;visibility:visible}.dmPopupClose{border-radius:25px;width:27px;height:27px;z-index:1;background-color:rgba(255,255,255,.4);top:12px;right:12px}.dmPopupClose:before{font-size:20px;color:#000;top:3px;right:3px}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar{width:5px;height:5px}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar-track{background:rgba(0,0,0,.1)}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar-thumb{background:#c8c8c8;box-shadow:inset 0 1px 2px #454545;border-radius:45px}#dm .dmRespRow .dmRespColsWrapper{display:flex}.pswp{display:none;z-index:9999999999!important}#dm .dmInner .dmWidget.align-center,.align-center{margin-left:auto;margin-right:auto}.text-align-center{text-align:center}body.fix-mobile-scrolling{overflow:initial}p.rteBlock{margin:0}#dmRoot{text-decoration-skip-ink:none}#dm .flexslider[sliderscriptparams*='isFade: true'] .slides li{width:100%!important;float:left!important;margin-right:-100%!important;position:relative!important}#dm .flexslider .slides li:first-child>a>img{width:100%;height:100%;object-fit:contain;position:absolute;display:block}#dm .flexslider[sliderscriptparams*='stretch: true'] .slides li:first-child img{object-fit:cover}body{-webkit-overflow-scrolling:touch}@media (min-width:1025px){:root{--btn-text-font-size:15px}}@media (min-width:768px) and (max-width:1024px){:root{--btn-text-font-size:15px}}html{font-family:Source Sans Pro;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}h1{font-size:2em;margin:.67em 0}strong{font-weight:700}hr{box-sizing:content-box;height:0}img{border:0;max-width:100%;-ms-interpolation-mode:bicubic;display:inline-block}button{font-family:inherit;font-size:100%;margin:0;line-height:normal;text-transform:none;-webkit-appearance:button}button::-moz-focus-inner{border:0;padding:0}*,:after,:before{box-sizing:border-box}.dmRespRow.dmRespRowNoPadding{padding:0}.dmRespRow{padding-top:15px;padding-bottom:15px}.dmRespRow:after,.dmRespRow:before{content:' ';display:table}.dmRespRow:after{clear:both}.dmRespRow,.dmRespRow .dmRespColsWrapper{max-width:960px;position:relative;margin:0 auto;width:100%}@media screen and (min-width:1200px){.rows-1200 .dmRespRow:not(.fullBleedMode) .dmRespColsWrapper{max-width:1200px}}.dmRespRow .dmRespCol{position:relative;width:100%;display:inline-block;vertical-align:top;float:left}.dmRespRow .dmRespCol>*{max-width:100%}.dmDesktopBody .dmRespRow .large-2{position:relative;width:16.66667%}.dmDesktopBody .dmRespRow .large-10{position:relative;width:83.33333%}.dmDesktopBody .dmRespRow .large-12{position:relative;width:100%}[class*=' dm-common-icons-']{speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-family:dm-common-icons!important}.dm-common-icons-close:before{content:'\e901'}#dm div.dmContent [class*=' icon-'],[class*=' icon-']{font-family:FontAwesome!important;font-weight:400;font-style:normal;text-decoration:inherit;-webkit-font-smoothing:antialiased}[class*=' icon-']:before{text-decoration:none;display:inline-block;speak:none}a [class*=' icon-']{display:inline}[class*=' icon-']{display:inline;width:auto;height:auto;line-height:normal;vertical-align:baseline;background-image:none;background-position:0 0;background-repeat:repeat;margin-top:0}.icon-star:before{content:'\f005'}#dm .dmRespRow .dmRespCol>.dmWidget{overflow:initial}@media (min-width:768px){#dm .dmRespRow .dmRespCol>.dmWidget{width:280px;max-width:100%}#dm .dmRespRow .dmRespCol.large-2>.dmWidget{width:100%}}@media (max-width:767px){#dm .dmInner .dmWidget{width:100%}}#dm .dmInner .dmWidget:not(.displayNone){display:inline-block}#dm .dmInner .dmWidget:not(.displayNone)[data-display-type=block]{display:block}#dm .dmInner .dmWidget{text-decoration:none;margin:10px 0;clear:both;position:relative;text-align:center;line-height:22px;box-shadow:none;background-image:none;padding:0;height:auto;border-style:solid;white-space:nowrap}#dm .dmInner .dmWidget.slide-button{margin-bottom:0}#dm .dmInner .dmWidget:after{content:'';display:inline-block;height:100%;vertical-align:middle;width:0;margin-right:-.25em}#dm .dmInner .dmWidget .iconBg{position:absolute;left:0;width:50px;top:50%;margin-top:-13px}#dm .dmWidget .text{display:inline-block;vertical-align:middle;font-size:1.125em;line-height:normal;white-space:normal;padding:10px 7px;max-width:98%}#dm .dmWidget.slide-button:after{display:none}.dmImageSlider{height:350px;position:relative;clear:both}.flexslider{-webkit-transform:translate3d(0,0,0);padding:0;-webkit-transform:translateZ(0);direction:ltr;margin:0;zoom:1;opacity:1!important}html:not(.ios-preview) #dm .hasStickyHeader .dmInner div.dmHeaderContainer{position:fixed!important;z-index:101;width:100%;min-width:768px}.dmNewParagraph[data-version]{line-height:initial}.dmNewParagraph[data-version] .text-align-left{text-align:left!important}.dmNewParagraph[data-version] .text-align-center{text-align:center!important}.dmNewParagraph[data-version] h1,.dmNewParagraph[data-version] p{margin-top:0;margin-bottom:0}.slides{margin:0;padding:0;list-style:none}.flexslider,.flexslider .slides>li{height:100%;overflow:hidden;position:relative}.flexslider .slides{height:100%;zoom:1}.flexslider .slides>li{display:none;text-align:center}.flexslider .slides>li a{display:block;width:100%;height:100%}.flexslider .slides img{width:100%;display:block;margin:auto}.flexslider .slides>li a img{opacity:0}.slides:after{content:'\0020';display:block;clear:both;visibility:hidden;line-height:0;height:0}#dm div.dmRespCol>*,.flexslider .slides>li .slide-inner *{line-height:normal}html[xmlns] .slides{display:block}.flexslider .color-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.25);display:block}.flexslider .slides>li .slide-inner{font-weight:700;color:#fff;position:absolute;z-index:1;visibility:hidden}.flexslider .slides>li .slide-inner .slide-title{margin:0}.flexslider .slides>li .slide-inner .slide-text{margin:0;font-size:19px;font-weight:400;white-space:pre-line}#dm .dmInner .flexslider .slides>li .slide-inner .slide-button{margin-top:20px;margin-left:auto;margin-right:auto}.flexslider .slides>li[layout=center] .slide-inner{max-width:70%;max-height:80%}#dm .flexslider .slides .dmWidget .text{max-width:100%;width:100%;padding:10px 20px!important}#dm .dmRespRow.dmRespRowNoPadding,.dmContent,.dmInner ul:not(.defaultList),DIV.dmBody{padding:0}#dm .dmInner .flexslider.ed-version .slide-button{-js-display:inline-flex;display:inline-flex;justify-content:center;align-items:center}.flexslider:not([position]):not([layout]) .slides>li[layout=center][position=center] .slide-inner{right:auto!important;bottom:auto!important;text-align:center}.flexslider.ed-version .slides img{display:none}.flexslider.ed-version:not([layout]) .slides>li[layout=center]{-ms-flex-pack:center;-ms-flex-align:center;display:flex!important;justify-content:center;align-items:center}.flexslider.ed-version:not([layout]) .slides>li[layout=center] .slide-inner{position:static!important;top:auto!important;left:auto!important;margin:0!important}.flexslider.ed-version:not([layout]) .slides>li[layout=center] .slide-inner .slide-button.slide-button-visible{display:inline-flex!important}.flexslider.ed-version:not([layout]) .slides>li[layout=center] a{position:absolute;left:0;top:0}#innerBar,#iscrollBody,#site_content,.dmHeader{position:relative}.flexslider.ed-version:not([layout]) .slide-inner{max-width:70%;max-height:80%;background-color:transparent;top:50%!important;left:50%!important;right:auto!important;width:auto}.flexslider.ed-version:not([layout]) .slide-inner .slide-title{display:block!important;text-align:center!important}.imageWidget a{font-style:italic;text-align:center}*{border:0 solid #333;scrollbar-arrow-color:#fff;scrollbar-track-color:#F2F2F2;scrollbar-face-color:silver;scrollbar-highlight-color:silver;scrollbar-3dlight-color:silver;scrollbar-shadow-color:silver;scrollbar-darkshadow-color:silver;scrollbar-width:12px}body{width:100%;overflow:hidden;-webkit-text-size-adjust:100%!important;-ms-text-size-adjust:100%!important}A IMG{border:none}h1,h3,ul{margin-left:0;margin-right:0}.dmInner *{-webkit-font-smoothing:antialiased}.clearfix,a,img,li,ul{vertical-align:top}.dmOuter{word-wrap:break-word}.dmInner{font-size:16px;background:#fff;color:#666}.dmDesktopBody .dmInner{min-width:960px}.dmInner a{color:#463939}.dmHeader{background:#68ccd1;color:#666;text-align:center;width:100%;max-width:100%}DIV.dmBody{clear:both}.dmContent{margin:0}#site_content ul:not(.defaultList){-webkit-padding-start:0;-moz-padding-start:0;list-style-position:inside}#innerBar{height:36px;width:100%;font-size:20px;margin:0;z-index:80}.dmRespRowsWrapper{max-width:960px;margin:0 auto}.dmLargeBody .imageWidget:not(.displayNone){display:inline-block;max-width:100%}.imageWidget:not(.displayNone) img{width:100%}h3{font-weight:400;font-size:23px}#dm .dmRespColsWrapper{display:block}.dmNewParagraph{text-align:left;margin:8px 0;padding:2px 0}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol,.dmLargeBody .fHeader .dmRespRow .dmRespCol{padding-left:.75%;padding-right:.75%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:first-child,.dmLargeBody .fHeader .dmRespRow .dmRespCol:first-child{padding-left:0;padding-right:1.5%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:last-child,.dmLargeBody .fHeader .dmRespRow .dmRespCol:last-child{padding-right:0;padding-left:1.5%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:only-child{padding-left:0;padding-right:0}#innerBar.lineInnerBar{display:table;width:100%;box-shadow:none;-webkit-box-shadow:none;-moz-box-shadow:none;font-size:20px;margin-top:30px;margin-bottom:30px;background-color:transparent;color:#666}#innerBar .titleLine{display:table-cell;vertical-align:middle;width:50%}.dmPageTitleRow:not(#innerBar){display:none}.titleLine hr{min-height:1px;background-color:rgba(102,102,102,.2)}.dmStandardDesktop{display:block;margin:0 auto}.standardHeaderLayout .dmHeader{float:none;display:block;height:auto}.dmInner a{outline:0;vertical-align:inherit}body{background-color:#eee}#dm .dmBody .dmRespRowsWrapper{max-width:none;background-color:transparent}.dmLargeBody .dmRespRow{width:100%;max-width:none;margin-left:0;margin-right:0;padding-left:40px;padding-right:40px}.dm-bfs.dm-layout-home div.dmInner{background-color:#fff}.dmStandardDesktop .dmHeader{background-color:#68ccd1;max-width:100%}#dm .dmInner div.u_hcontainer,#dm .p_hfcontainer a.u_1263589608{top:0!important;position:relative!important;max-width:100%!important}#dm div.dmContent h1{color:#666}#dm div.dmContent h1,#dm div.dmContent h3,#dm div.dmInner{line-height:initial}#dm div.dmContent h3{color:#fff}#dm div.dmInner h1,#dm div.dmInner h3{font-family:Montserrat}#dm DIV.dmInner{background-repeat:no-repeat;background-image:url(https://irt-cdn.multiscreensite.com/ce0bb35f932b47bb809d0e37905542ba/dms3rep/multi/site_background_education-2087x1173.jpg);background-size:cover;background-position:50% 0}#dm div.dmOuter div.dmInner{background-position:center center;background-repeat:repeat;background-size:auto}#dm div.dmInner,#dm div.dmInner .dmRespCol{font-weight:300;font-size:16px}.dmLargeBody .dmBody .dmRespRowsWrapper{background-color:transparent}#dm .dmRespCol div.dmNewParagraph,#dm div.dmInner,#dm div.dmInner .dmRespCol{font-family:'DM Sans';color:rgba(49,49,49,1)}#dm div.dmContent h1,#dm div.dmContent h3{color:rgba(17,17,17,1);direction:ltr;font-style:normal;text-decoration:none}#dm div.dmContent h1{font-family:"DM Serif Text";font-weight:400}#dm div.dmContent h3{font-family:"DM Sans";font-weight:700;font-size:24px}#dm div.dmContent .dmNewParagraph[data-version] h1{text-decoration:inherit}#dm div.dmContent .dmNewParagraph[data-version] h1 *{text-decoration:none}h1,h3{data-inject:titleFont;font-family:Alata!important}p{data-inject:bodyFont;font-family:Roboto Slab!important}.dmButtonLink{data-inject:backgroundPrimaryColorOnWhite;background-color:#B17A50!important}.dmHeaderContainer{data-inject:backgroundLogoBackgroundColor;background-color:#eee!important}.backgroundOnLogoBackgroundColor{data-inject:backgroundOnLogoBackgroundColor;background-color:#000!important}.logoBackgroundColor{data-inject:logoBackgroundColor;color:#eee!important}#dm DIV.dmOuter DIV.dmInner{background-image:none;background-color:rgba(248,246,238,1)}#dm div.dmContent h1{font-size:60px}@media all{:root{--btn-text-direction:ltr;--btn-border-r-color:var(--btn-border-color);--btn-border-l-color:var(--btn-border-color);--btn-border-b-width:var(--btn-border-width);--btn-border-width:0px;--btn-border-radius:0px;--btn-border-t-width:var(--btn-border-width);--btn-border-tl-radius:var(--btn-border-radius);--btn-border-br-radius:var(--btn-border-radius);--btn-border-bl-radius:var(--btn-border-radius);--btn-bg-color:rgb(177, 122, 80);--btn-border-color:rgba(0, 0, 0, 0);--btn-border-tr-radius:var(--btn-border-radius);--btn-border-r-width:var(--btn-border-width);--btn-bg-image:none;--btn-border-b-color:var(--btn-border-color);--btn-border-l-width:var(--btn-border-width);--btn-border-t-color:var(--btn-border-color);--btn-text-align:center;--btn-text-color:rgb(255, 255, 255);--btn-text-decoration:none;--btn-text-font-weight:400;--btn-icon-color:rgb(247, 247, 247);--btn-icon-fill:rgb(247, 247, 247);--btn-icon-wrpr-display:none;--btn-hover-border-b-color:var(--btn-hover-border-color);--btn-hover-bg:var(--btn-bg-color);--btn-hover-border-t-color:var(--btn-hover-border-color);--btn-hover-border-r-color:var(--btn-hover-border-color);--btn-hover-border-l-color:var(--btn-hover-border-color);--btn-hover-border-color:var(--btn-border-color);--btn-hover-text-color:var(--btn-text-color);--btn-hover-text-font-weight:var(--btn-text-font-weight);--btn-hover-text-decoration:var(--btn-text-decoration);--btn-hover-text-font-style:var(--btn-text-font-style)}}@media (min-width:0px) and (max-width:767px){:root{--btn-text-font-size:15px}}#dm .dmWidget:not([data-buttonstyle]){overflow:initial;background-clip:border-box;border-radius:1px}#dm .dmWidget:not([data-buttonstyle]) .text{padding:16px 0}#dm .dmWidget:not([data-buttonstyle]) .iconBg{display:none}@media (min-width:768px){#dm .dmRespRow .dmRespCol>.dmWidget{width:222px}}#dm div.dmInner #site_content .dmWidget,#dm div.dmInner .dmHeader .dmWidget{background-color:var(--btn-bg-color);background-image:var(--btn-bg-image);border-color:var(--btn-border-color);border-bottom-color:var(--btn-border-b-color);border-left-color:var(--btn-border-l-color);border-right-color:var(--btn-border-r-color);border-top-color:var(--btn-border-t-color);border-radius:var(--btn-border-radius);border-bottom-left-radius:var(--btn-border-bl-radius);border-bottom-right-radius:var(--btn-border-br-radius);border-top-left-radius:var(--btn-border-tl-radius);border-top-right-radius:var(--btn-border-tr-radius);border-width:var(--btn-border-width);border-bottom-width:var(--btn-border-b-width);border-left-width:var(--btn-border-l-width);border-right-width:var(--btn-border-r-width);border-top-width:var(--btn-border-t-width);direction:var(--btn-text-direction);text-align:var(--btn-text-align)}#dm div.dmInner #site_content .dmWidget span.text{color:var(--btn-text-color);font-size:var(--btn-text-font-size);font-weight:var(--btn-text-font-weight);text-decoration:var(--btn-text-decoration)}#dm div.dmInner #site_content .dmWidget span.icon,#dm div.dmInner .dmHeader .dmWidget span.icon{color:var(--btn-icon-color);fill:var(--btn-icon-fill)}#dm div.dmInner #site_content .dmWidget:not([data-buttonstyle]) .iconBg,#dm div.dmInner .dmHeader .dmWidget:not([data-buttonstyle]) .iconBg{display:var(--btn-icon-wrpr-display)}#dm .dmInner div.dmHeader,#dm .dmInner div.dmHeader.u_hcontainer,#dm .dmInner div.u_hcontainer{background-color:rgba(0,0,0,0)!important;box-shadow:none!important;-moz-box-shadow:none!important;-webkit-box-shadow:none!important}#dm .p_hfcontainer div.u_1966965396 img{border-radius:0!important;-moz-border-radius:0!important;-webkit-border-radius:0!important;width:auto!important;height:50px!important}#dm .p_hfcontainer div.u_1966965396 a{height:100%!important}#dm .dmInner div.u_hcontainer{float:none!important;left:0!important;width:100%!important;height:auto!important;min-width:0!important;text-align:center!important;padding:25px 0 20px!important;margin:0 auto!important}#dm .p_hfcontainer a.u_1263589608,#dm .p_hfcontainer div.u_1966965396{width:calc(100% - 0px)!important;float:none!important;text-align:center!important}#dm .dmInner div.dmHeader.u_hcontainer{padding-bottom:20px!important;padding-top:25px!important}#dm .dmInner div.fHeader .dmHeader[freeheader=true]{padding:0!important}.fHeader #hcontainer.dmHeader[freeheader=true]{padding-top:initial!important;padding-bottom:initial!important}#dm .p_hfcontainer a.u_1263589608{left:0!important;height:50px!important;min-width:25px!important;display:block!important;padding:0!important;margin:2px auto 0!important}.stickyHeaderSpacer{height:82px!important}#dm .p_hfcontainer div.u_1465769121,#dm .p_hfcontainer div.u_1966965396{position:relative!important;height:auto!important;margin:0!important;left:0!important;top:0!important}#dm .p_hfcontainer div.u_1392608182{padding:0!important}#dm .p_hfcontainer div.u_1005306451{padding:0!important;margin:0!important}#dm .p_hfcontainer div.u_1966965396{max-width:747.31px!important;display:flex!important;align-items:center!important;justify-content:start!important;min-width:25px!important;padding:0!important}#dm .p_hfcontainer div.u_1465769121{width:auto!important;float:none!important;max-width:100%!important;min-width:0!important;text-align:center!important;padding:22px 15px 21px!important}#dm .dmBody .u_1110185042:before{opacity:.5!important;background-color:#fff!important}#dm .dmBody div.u_1110185042:before{content:' '!important;display:block!important;position:absolute!important;left:0!important;top:0!important;width:100%!important;height:100%!important;opacity:.6!important;background-color:#000!important}#dm .dmBody .u_1718664467,#dm .dmBody .u_1993146421,#dm .dmBody div.u_1414763560{display:none!important}#dm .dmBody div.u_1414763560,#dm .dmBody div.u_1579485372{height:auto!important;float:none!important;top:0!important;left:0!important;position:relative!important}#dm .dmBody div.u_1414763560{background-color:rgba(255,255,255,1)!important}#dm .dmBody .u_1895142357{background-image:url(https://lirp.cdn-website.com/md/pexels/dms3rep/multi/opt/pexels-photo-669619-1920w.jpeg),url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=)!important}#dm .dmBody .u_1410556049{background-image:url(https://lirp.cdn-website.com/md/pexels/dms3rep/multi/opt/pexels-photo-3760067-1920w.jpeg),url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=)!important}#dm .dmBody .u_1336776306{background-image:url(https://lirp.cdn-website.com/md/pexels/dms3rep/multi/opt/pexels-photo-16980405-1920w.jpeg),url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=)!important}#dm .dmBody .u_1121087831{background-image:url(https://lirp.cdn-website.com/md/pexels/dms3rep/multi/opt/pexels-photo-4467737-1920w.jpeg),url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=)!important}#dm .d-page-1716942098 DIV.dmInner{background-repeat:no-repeat!important;background-size:cover!important;background-attachment:fixed!important;background-position:50% 50%!important;background-color:rgba(248,246,238,1)!important}#dm .dmBody div.u_1579485372{width:601px!important;max-width:calc(100% - 0px)!important;min-width:25px!important;padding:2px 0!important;margin:8px 0!important}#dm .dmBody div.u_1338723751{border-left-style:solid!important;border-left-color:rgba(182,182,182,1)!important;border-left-width:6px!important;padding-left:30px!important}#dm .dmBody div.u_1414763560{width:100%!important;max-width:none!important;min-width:0!important;text-align:center!important;padding:70px 50px 70px 40px!important;margin:0!important}#dm .dmBody div.u_1361787663{float:none!important;top:0!important;left:0!important;width:calc(100% - 80px)!important;position:relative!important;height:381px!important;max-width:1040px!important;min-width:25px!important;text-align:start!important;padding:0!important;margin:0 auto!important}#dm .dmBody div.u_1110185042,#dm .dmBody div.u_1722028889{float:none!important;top:0!important;left:0!important;position:relative!important;height:auto!important}#dm .dmBody div.u_1722028889{display:block!important;width:calc(100% - 107px)!important;max-width:967px!important;min-width:25px!important;padding:2px 0!important;margin:0 201.01px 0 107px!important}#dm .dmBody div.u_1110185042{background-repeat:no-repeat!important;background-image:url(https://lirp.cdn-website.com/md/pexels/dms3rep/multi/opt/pexels-photo-3490393-1920w.jpeg),url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=)!important;background-attachment:initial!important;background-size:cover!important;background-position:0 50%!important;width:auto!important;max-width:100%!important;min-width:0!important;text-align:start!important;padding:86.5px 40px!important;margin:0!important}
-         .dmDesktopBody [data-anim-desktop]:not([data-anim-desktop='none']) {
-         visibility: hidden;
-         }
-      </style>
-      <!-- End render the required css and JS in the head section -->
-      <link type="application/rss+xml" rel="alternate" href="https://www.globalsalestrategy.com//feed/rss2"/>
-      <link type="application/atom+xml" rel="alternate" href="https://www.globalsalestrategy.com//feed/atom"/>
-      <meta property="og:type" content="website"/>
-      <meta name="twitter:card" content="summary"/>
-      <!-- SYS- VVNfRElSRUNUX1BST0RVQ1RJT04= -->
-   </head>
-   <body id="dmRoot" data-page-alias="home"  class="dmRoot dmDesktopBody fix-mobile-scrolling addCanvasBorder dmResellerSite mac dmLargeBody " style="padding:0;margin:0;"
-      >
-      <!-- ========= Site Content ========= -->
-      <div id="dm" class='dmwr'>
-         <div class="dm_wrapper standard-var5 widgetStyle-3 standard">
-            <div dmwrapped="true" id="1901957768" class="dm-home-page" themewaschanged="true">
-               <div dmtemplateid="StandardLayoutMultiD" class="standardHeaderLayout dm-bfs dm-layout-home dm-single-page-nav  hasAnimations hasStickyHeader inMiniHeaderMode rows-1200 hamburger-reverse layout-drawer_push-content dmPageBody d-page-1716942098 dmFreeHeader" id="dm-outer-wrapper" data-page-class="1716942098" data-soch="true" data-background-parallax-selector=".dmHomeSection1, .dmSectionParallex">
-                  <div id="dmStyle_outerContainer" class="dmOuter">
-                     <div id="dmStyle_innerContainer" class="dmInner">
-                        <div class="dmLayoutWrapper standard-var dmStandardDesktop">
-                           <div>
-                              <div id="iscrollBody">
-                                 <div id="site_content">
-                                    <div class="dmHeaderContainer fHeader d-header-wrapper">
-                                       <div id="hcontainer" class="u_hcontainer dmHeader p_hfcontainer" freeheader="true" headerlayout="b58ba5b5703b4cd7b5f5f7951565dc87===horizontal-layout-5" data-scrollable-target="body" data-scrollable-target-threshold="1" data-scroll-responder-id="1" preserve-sticky-header="true" logo-size-target="79%" layout="f014fc9487554eb885e18628ee6309e9===header" mini-header-show-only-navigation-row="true">
-                                          <div dm:templateorder="85" class="dmHeaderResp dmHeaderStack noSwitch" id="1709005236">
-                                             <div class="u_1465769121 dmRespRow dmDefaultListContentRow" style="text-align:center" id="1465769121">
-                                                <div class="dmRespColsWrapper" id="1404094177">
-                                                   <div class="u_1392608182 small-12 dmRespCol large-10 medium-10" id="1392608182">
-                                                      <div class="u_1966965396 imageWidget align-center" data-widget-type="image" id="1966965396" data-element-type="image"> <a href="/" id="1628741640"><img src="https://s3.ca-central-1.amazonaws.com/logojoy/logos/123738373/noBgColor.png" id="1431229213" class="" data-inject="logo" data-dm-image-path="https://s3.ca-central-1.amazonaws.com/logojoy/logos/123738373/noBgColor.png" onerror="handleImageLoadError(this)" height="50.0" width="186.359375"/></a> </div>
-                                                   </div>
-                                                   <div class="u_1005306451 dmRespCol small-12 large-2 medium-2" id="1005306451"> <a data-display-type="block" class="u_1263589608 align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient backgroundOnLogoBackgroundColor" file="false" href="mailto:c.rimbert@globalsalestrategy.com" data-element-type="dButtonLinkId" id="1263589608"> <span class="iconBg" id="1623416849"> <span class="icon hasFontIcon icon-star" id="1235119456"></span> 
-                                                      </span> 
-                                                      <span class="text logoBackgroundColor" id="1759796224">Contactez Nous</span> 
-                                                      </a> 
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="stickyHeaderSpacer" id="stickyHeaderSpacer" data-new="true"></div>
-                                    <div class="dmRespRow dmRespRowStable dmRespRowNoPadding dmPageTitleRow ">
-                                       <div class="dmRespColsWrapper">
-                                          <div class="large-12 dmRespCol">
-                                             <div id="innerBar" class="innerBar lineInnerBar dmDisplay_None">
-                                                <div class="titleLine display_None">
-                                                   <hr/>
-                                                </div>
-                                                <!-- Page title is hidden in css for new responsive sites. It is left here only so we don't break old sites. Don't copy it to new layouts --> 
-                                                <div id="pageTitleText"></div>
-                                                <div class="titleLine display_None">
-                                                   <hr/>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div dmwrapped="true" id="1901957768" class="dmBody u_dmStyle_template_home dm-home-page" themewaschanged="true">
-                                       <div id="allWrapper" class="allWrapper">
-                                          <!-- navigation placeholders --> 
-                                          <div id="dm_content" class="dmContent">
-                                             <div dm:templateorder="170" class="dmHomeRespTmpl mainBorder dmRespRowsWrapper dmFullRowRespTmpl" id="1716942098">
-                                                <div class="u_1110185042 dmRespRow dmSectionNoParallax" id="1110185042" data-inject="photo10" style="background-image: url('https://cdn.looka.com/assets-db/industry_photos/businessconsulting/offering-3.jpg');">
-                                                   <div class="dmRespColsWrapper" id="1872481844">
-                                                      <div class="dmRespCol large-12 medium-12 small-12" id="1721027432">
-                                                         <div class="u_1722028889 dmNewParagraph" data-element-type="paragraph" id="1722028889" data-version="5" background-image":""}"="" style="text-align: left; display: block;"> 
-                                                         <h1 class="text-align-center" style="direction: ltr;"><span style="display: initial; color: rgb(255, 255, 255);">Lib&eacute;rez votre potentiel commercial</span></h1>
-                                                      </div>
-                                                      <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1344773715">
-                                                         <p><span style="display: unset;">Nouveau paragraphe</span></p>
-                                                      </div>
-                                                      <div class="u_1361787663 flex-container dmImageSlider dmNoMargin dmNoMark" data-widget-type="imageSlider" dmle_volatile_widget="true" data-element-type="dSliderId" id="1361787663">
-                                                         <div class="flexslider ed-version" sliderscriptparams="{ stretch: true, animation: true, randomize: false, directionNav: true, isAutoPlay: true, isFade: true, controlNav: false, slideshowSpeed: 7000, animationDuration: 600, pausePlay: true }" id="1023538685">
-                                                            <ul class="slides" id="1582427782">
-                                                               <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1895142357" class="u_1895142357" show-caption="true">
-                                                                  <a href="/" id="1679153106" file="false"><img dm="true" src="https://lirp.cdn-website.com/md/pexels/dms3rep/multi/opt/pexels-photo-669619-1248w.jpeg" id="1253743916" class="" onerror="handleImageLoadError(this)" height="381.0" width="1040.0"/></a> 
-                                                                  <div class="color-overlay" id="1109057602"></div>
-                                                                  <div class="slide-inner" id="1391243612">
-                                                                     <div class="text-wrapper" id="1139527891">
-                                                                        <div class="slide-text richText u_1424821130" id="1424821130">
-                                                                           <p class="rteBlock"><strong>Vous souhaitez optimiser vos r&eacute;sultats commerciaux dans la grande distribution et le retail ?</strong></p>
-                                                                        </div>
-                                                                     </div>
-                                                                     <div class="slide-button dmWidget clearfix slide-button-visible" id="1334148951"> <span class="iconBg" id="1629997736"> <span class="icon hasFontIcon icon-star" id="1605416200"></span> 
-                                                                        </span> 
-                                                                        <span class="text" id="1664681571">APPORTEURS D'AFFAIRES</span> 
-                                                                     </div>
-                                                                  </div>
-                                                               </li>
-                                                               <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1410556049" class="u_1410556049" show-caption="true">
-                                                                  <img dm="true" src="https://lirp.cdn-website.com/md/pexels/dms3rep/multi/opt/pexels-photo-3760067-1248w.jpeg" id="1755792225" class="" onerror="handleImageLoadError(this)" height="381.0" width="1040.0"/> 
-                                                                  <div class="color-overlay" id="1720155163"></div>
-                                                                  <div class="slide-inner" id="1659294792">
-                                                                     <div class="text-wrapper" id="1104564544">
-                                                                        <div class="slide-text richText u_1425042653" id="1425042653">
-                                                                           <p class="rteBlock"><strong>Cherchez-vous des solutions concr&egrave;tes pour n&eacute;gocier avec succ&egrave;s et obtenir des conditions commerciales avantageuses ?</strong></p>
-                                                                        </div>
-                                                                     </div>
-                                                                     <div class="slide-button dmWidget clearfix slide-button-visible" id="1029586954"> <span class="iconBg" id="1408916406"> <span class="icon hasFontIcon icon-star" id="1405207293"></span> 
-                                                                        </span> 
-                                                                        <span class="text" id="1301814113">NEGOCIATION</span> 
-                                                                     </div>
-                                                                  </div>
-                                                               </li>
-                                                               <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1336776306" class="u_1336776306" show-caption="true">
-                                                                  <img dm="true" src="https://lirp.cdn-website.com/md/pexels/dms3rep/multi/opt/pexels-photo-16980405-1248w.jpeg" id="1900844788" class="" onerror="handleImageLoadError(this)" height="381.0" width="1040.0"/> 
-                                                                  <div class="color-overlay" id="1353982187"></div>
-                                                                  <div class="slide-inner" id="1519685647">
-                                                                     <div class="text-wrapper" id="1426223933">
-                                                                        <h3 class="slide-title u_1718664467" id="1718664467">Titre de la diapositive</h3>
-                                                                        <div class="slide-text richText u_1129675064" id="1129675064">
-                                                                           <p class="rteBlock"><strong>Vous voulez saisir les opportunit&eacute;s de croissance inexploit&eacute;es dans le secteur distribution ?</strong></p>
-                                                                        </div>
-                                                                     </div>
-                                                                     <div class="slide-button dmWidget clearfix slide-button-visible" id="1395247756"> <span class="iconBg" id="1302202243"> <span class="icon hasFontIcon icon-star" id="1475255951"></span> 
-                                                                        </span> 
-                                                                        <span class="text" id="1374276333">STRATEGIE</span> 
-                                                                     </div>
-                                                                  </div>
-                                                               </li>
-                                                               <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1121087831" class="u_1121087831" show-caption="true">
-                                                                  <img dm="true" src="https://lirp.cdn-website.com/md/pexels/dms3rep/multi/opt/pexels-photo-4467737-1248w.jpeg" id="1715467383" class="" onerror="handleImageLoadError(this)" height="381.0" width="1040.0"/> 
-                                                                  <div class="color-overlay" id="1902225363"></div>
-                                                                  <div class="slide-inner" id="1995015152">
-                                                                     <div class="text-wrapper" id="1543513375">
-                                                                        <h3 class="slide-title u_1993146421" id="1993146421">Titre de la diapositive</h3>
-                                                                        <div class="slide-text richText u_1355840523" id="1355840523">
-                                                                           <p class="rteBlock"><strong>Vous avez besoin d'un soutien sp&eacute;cialis&eacute; et d'une expertise de gestion temporaire pour assurer la continuit&eacute; et la performance de votre entreprise ?</strong></p>
-                                                                        </div>
-                                                                     </div>
-                                                                     <div class="slide-button dmWidget clearfix slide-button-visible" id="1970827951"> <span class="iconBg" id="1228227239"> <span class="icon hasFontIcon icon-star" id="1087924409"></span> 
-                                                                        </span> 
-                                                                        <span class="text" id="1752057942">MANAGEMENT DE TRANSITION</span> 
-                                                                     </div>
-                                                                  </div>
-                                                               </li>
-                                                            </ul>
-                                                         </div>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div class="u_1414763560 dmRespRow" style="text-align: center;" id="1414763560">
-                                                <div class="dmRespColsWrapper" id="1873486417">
-                                                   <div class="u_1338723751 dmRespCol small-12 medium-12 large-12" id="1338723751">
-                                                      <div class="u_1579485372 dmNewParagraph" id="1579485372" style="transition: opacity 1s ease-in-out; display: block;" data-version="5">
-                                                         <p><span style="font-family: Alata; display: initial; color: rgb(0, 0, 0);">Alata</span></p>
-                                                         <p><span style="font-family: Alice; display: initial; color: rgb(0, 0, 0);">Alice</span></p>
-                                                         <p><span style="font-family: 'Open Sans'; display: initial; color: rgb(0, 0, 0);">Open Sans</span></p>
-                                                         <p><span style="font-family: 'Noto Sans'; display: initial; color: rgb(0, 0, 0);">Noto Sans</span></p>
-                                                         <p><span style="font-family: 'Bebas Neue'; display: initial; color: rgb(0, 0, 0);">Bebas Neue</span></p>
-                                                         <p><span style="font-family: Exo; display: initial; color: rgb(0, 0, 0);">Great Vibes</span></p>
-                                                         <p><span style="font-family: 'Rock Salt'; display: initial; color: rgb(0, 0, 0);">Rock Salt</span></p>
-                                                         <p><span style="font-family: Exo; display: initial; color: rgb(0, 0, 0);">Exo</span></p>
-                                                         <p><span style="font-family: Belgrano; display: initial; color: rgb(0, 0, 0);">Belgrano</span></p>
-                                                         <p><span style="font-family: Overlock; display: initial; color: rgb(0, 0, 0);">Overlock</span></p>
-                                                         <p><span style="font-family: Cinzel; display: initial; color: rgb(0, 0, 0);">Cinzel</span></p>
-                                                         <p><span style="font-family: 'Indie Flower'; display: initial; color: rgb(0, 0, 0);">Indie Flower</span></p>
-                                                         <p class="text-align-left"><span style="font-family: Staatliches; display: initial; color: rgb(0, 0, 0);">Staatliches</span></p>
-                                                         <p><span style="color: rgb(0, 0, 0); display: initial; font-family: 'Roboto Slab';">Roboto Slab</span></p>
-                                                         <p><span style="color: rgb(0, 0, 0); display: initial; font-family: Lato;">Lato</span></p>
-                                                         <p><span style="color: rgb(0, 0, 0); display: initial; font-family: 'Noto Serif';">Noto Serif</span></p>
-                                                         <p><span style="color: rgb(0, 0, 0); display: initial; font-family: 'Open Sans';">Open Sans</span></p>
-                                                         <p><span style="color: rgb(0, 0, 0); display: initial; font-family: Montserrat;">Montserrat</span></p>
-                                                         <p><span style="color: rgb(0, 0, 0); display: initial; font-family: Ubuntu;">Ubuntu</span></p>
-                                                         <p><span style="color: rgb(0, 0, 0); display: initial; font-family: Rubik;">Rubik</span></p>
-                                                         <p><span style="color: rgb(0, 0, 0); display: initial; font-family: Delius;">Delius</span></p>
-                                                         <p><span style="color: rgb(0, 0, 0); display: initial; font-family: Amiri;">Amiri</span></p>
-                                                         <p><span style="color: rgb(0, 0, 0); display: initial; font-family: Montserrat;">Montserrat</span><span style="display: initial;"><br/></span></p>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div class="dmRespRow" id="1263945259">
-                                                <div class="dmRespColsWrapper" id="1231094620">
-                                                   <div class="dmRespCol large-12 medium-12 small-12" id="1635369044">
-                                                      <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1709667753" style="transition: opacity 1s ease-in-out 0s;">
-                                                         <h1 class="text-align-center"><span style="display: unset;">Un service de conseil en affaires r&eacute;alis&eacute;</span></h1>
-                                                         <h1 class="text-align-center"><span style="display: unset;">avec rigueur et expertise</span></h1>
-                                                         <p><span style="display: initial;"><br/></span></p>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                             <div class="u_1829683262 dmRespRow" id="1829683262">
-                                                <div class="dmRespColsWrapper" id="1140182342">
-                                                   <div class="dmRespCol large-12 medium-12 small-12 u_1893968690" id="1893968690">
-                                                      <div class="u_1471177492 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1471177492" style="text-align: left;">
-                                                         <h2 class="text-align-center" style="line-height: 1.5;"><span style="color: rgb(216, 158, 112); display: initial;">LES SERVICES DU CABINET :</span></h2>
-                                                      </div>
-                                                      <div class="u_1613554573 dmRespRow" id="1613554573" mode="1">
-                                                         <div class="dmRespColsWrapper" id="1420472523">
-                                                            <div class="u_1678674850 dmRespCol large-2 medium-2 small-12" id="1678674850">
-                                                               <div class="u_1172232759 default dmShape" id="1172232759" dmle_extension="shape" data-element-type="shape" text-position="center_center" wr="true" icon="true" surround="true" adwords="" shape-text="MQ==" shape-description="" shape-image="" alt-text="" tooltip="" shape-type="shape5" show-text-on-shape="true" show-description-on-shape="true" shape-color="rgba(216, 158, 112, 1)" shape-show-shadow="false" border-color-shape="" show-background-overlay="false" overlay-color="#ffffff" image-position="xMidYMid" shape-keep-proportion="true" shape-layout="layout1" border-width-shape="0" overlay-opacity="50" link-attrs="e30=">
-                                                                  <a data-link-id="shape-link-container" id="1811970667">
-                                                                     <div class="container-text container-padding center_center" id="1081956863">
-                                                                        <h3 class="shape-text" id="1523796641">1</h3>
-                                                                        <div class="shape-description" id="1447784577"></div>
-                                                                     </div>
-                                                                     <svg width="100%" height="100%" viewbox="0.00 0.00 100 100" id="1605057148">
-                                                                        <g>
-                                                                           <path d="M50,0L50,0C24.2,0,2.7,19.6,0.2,45.2L0,45v5l0,0v50h50c27.6,0,50-22.4,50-50l0,0C100,22.4,77.6,0,50,0z" style="fill:rgba(216, 158, 112, 1);"></path>
-                                                                        </g>
-                                                                     </svg>
-                                                                  </a>
-                                                               </div>
-                                                            </div>
-                                                            <div class="u_1371686164 dmRespCol small-12 large-4 medium-4" id="1371686164">
-                                                               <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1687227986" style="transition: opacity 1s ease-in-out 0s;">
-                                                                  <h5 class="m-size-20 size-28"><span class="font-size-28 m-font-size-20" style="text-decoration: none; color: rgb(25, 41, 69); font-weight: bold; display: initial;">Apporteur d'affaires :</span></h5>
-                                                               </div>
-                                                               <div class="u_1840635805 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1840635805" style="transition: none 0s ease 0s; text-align: left; display: block;">
-                                                                  <ul class="defaultList bullet">
-                                                                     <li class="text-align-left m-size-13"><span class="m-font-size-13" style="display: initial;">Recherche active de nouvelles opportunit&eacute;s commerciales et identification de partenariats potentiels.</span></li>
-                                                                     <li class="text-align-left m-size-13"><span class="m-font-size-13" style="display: initial;">Pr&eacute;sentation et promotion des produits ou services de l'entreprise &agrave; des clients potentiels.</span></li>
-                                                                     <li class="text-align-left m-size-13"><span class="m-font-size-13" style="display: initial;">N&eacute;gociation et conclusion d'accords commerciaux avec les partenaires identifi&eacute;s.</span></li>
-                                                                     <li class="text-align-left m-size-13"><span class="m-font-size-13" style="display: initial;">Suivi r&eacute;gulier avec les clients pour s'assurer de leur satisfaction et identifier de nouvelles opportunit&eacute;s.</span></li>
-                                                                  </ul>
-                                                                  <p><span style="display: initial;"><br/></span></p>
-                                                               </div>
-                                                            </div>
-                                                            <div class="u_1069164260 dmRespCol small-12 large-2 medium-2" id="1069164260">
-                                                               <div class="u_1957037603 default dmShape" id="1957037603" dmle_extension="shape" data-element-type="shape" text-position="center_center" wr="true" icon="true" surround="true" adwords="" shape-text="Mg==" shape-description="" shape-image="" alt-text="" tooltip="" shape-type="shape5" show-text-on-shape="true" show-description-on-shape="true" shape-color="rgba(216, 158, 112, 1)" shape-show-shadow="false" border-color-shape="" show-background-overlay="false" overlay-color="#ffffff" image-position="xMidYMid" shape-keep-proportion="true" shape-layout="layout1" border-width-shape="0" overlay-opacity="50" link-attrs="e30=">
-                                                                  <a data-link-id="shape-link-container" id="1722671667">
-                                                                     <div class="container-text container-padding center_center" id="1585892332">
-                                                                        <h3 class="shape-text" id="1666701335">2</h3>
-                                                                        <div class="shape-description" id="1471126237"></div>
-                                                                     </div>
-                                                                     <svg width="100%" height="100%" viewbox="0.00 0.00 100 100" id="1009232158">
-                                                                        <g>
-                                                                           <path d="M50,0L50,0C24.2,0,2.7,19.6,0.2,45.2L0,45v5l0,0v50h50c27.6,0,50-22.4,50-50l0,0C100,22.4,77.6,0,50,0z" style="fill:rgba(216, 158, 112, 1);"></path>
-                                                                        </g>
-                                                                     </svg>
-                                                                  </a>
-                                                               </div>
-                                                            </div>
-                                                            <div class="u_1439957906 dmRespCol large-4 medium-4 small-12" id="1439957906">
-                                                               <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1009287166" style="transition: opacity 1s ease-in-out 0s;">
-                                                                  <h5 class="size-28 m-size-22"><span class="font-size-28 m-font-size-22" style="display: initial; font-weight: bold;">Strat&eacute;gie commerciale :</span></h5>
-                                                               </div>
-                                                               <div class="u_1680695455 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1680695455" style="transition: none 0s ease 0s; text-align: left; display: block;">
-                                                                  <ul class="defaultList bullet">
-                                                                     <li class="text-align-left m-size-13"><span class="m-font-size-13" style="display: initial;">&Eacute;laboration d'une strat&eacute;gie de croissance &agrave; long terme, y compris l'identification de nouveaux march&eacute;s et de segments de clients potentiels.</span></li>
-                                                                     <li class="text-align-left m-size-13"><span class="m-font-size-13" style="display: initial;">Analyse de la concurrence et d&eacute;veloppement d'avantages concurrentiels durables.</span></li>
-                                                                     <li class="text-align-left m-size-13"><span class="m-font-size-13" style="display: initial;">D&eacute;finition d'un plan d'action pour d&eacute;velopper les ventes et augmenter la part de march&eacute;.</span></li>
-                                                                     <li class="text-align-left m-size-13"><span class="m-font-size-13" style="display: initial;">&Eacute;valuation de l'efficacit&eacute; des canaux de distribution existants et proposition de solutions pour les optimiser.</span></li>
-                                                                  </ul>
-                                                               </div>
-                                                            </div>
-                                                         </div>
-                                                      </div>
-                                                      <div class="dmRespRow u_1556094657" id="1556094657">
-                                                         <div class="dmRespColsWrapper" id="1101491299">
-                                                            <div class="u_1867190185 dmRespCol small-12 large-2 medium-2" id="1867190185">
-                                                               <div class="u_1731438227 default dmShape" id="1731438227" dmle_extension="shape" data-element-type="shape" text-position="center_center" wr="true" icon="true" surround="true" adwords="" shape-text="Mw==" shape-description="" shape-image="" alt-text="" tooltip="" shape-type="shape5" show-text-on-shape="true" show-description-on-shape="true" shape-color="rgba(216, 158, 112, 1)" shape-show-shadow="false" border-color-shape="" show-background-overlay="false" overlay-color="#ffffff" image-position="xMidYMid" shape-keep-proportion="true" shape-layout="layout1" border-width-shape="0" overlay-opacity="50" link-attrs="e30=">
-                                                                  <a data-link-id="shape-link-container" id="1046137378">
-                                                                     <div class="container-text container-padding center_center" id="1969035774">
-                                                                        <h3 class="shape-text" id="1976858012">3</h3>
-                                                                        <div class="shape-description" id="1268578390"></div>
-                                                                     </div>
-                                                                     <svg width="100%" height="100%" viewbox="0.00 0.00 100 100" id="1379674450">
-                                                                        <g>
-                                                                           <path d="M50,0L50,0C24.2,0,2.7,19.6,0.2,45.2L0,45v5l0,0v50h50c27.6,0,50-22.4,50-50l0,0C100,22.4,77.6,0,50,0z" style="fill:rgba(216, 158, 112, 1);"></path>
-                                                                        </g>
-                                                                     </svg>
-                                                                  </a>
-                                                               </div>
-                                                            </div>
-                                                            <div class="u_1344809918 dmRespCol small-12 large-4 medium-4" id="1344809918">
-                                                               <div class="u_1216425768 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1216425768" style="transition: opacity 1s ease-in-out 0s;">
-                                                                  <h5 class="m-size-20 size-28"><span class="font-size-28 m-font-size-20" style="font-weight: bold; display: initial; color: rgb(25, 41, 69);">N&eacute;gociation :</span></h5>
-                                                               </div>
-                                                               <div class="u_1903389039 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1903389039" style="" data-styletopreserve="{"background-image":""}"> 
-                                                               <ul class="defaultList bullet">
-                                                                  <li class="m-size-13 text-align-left"><span class="m-font-size-13" style="display: initial;">&Eacute;laboration de strat&eacute;gies de n&eacute;gociation pour obtenir des conditions commerciales avantageuses avec les distributeurs.</span></li>
-                                                                  <li class="m-size-13 text-align-left"><span class="m-font-size-13" style="display: initial;">Analyse des contrats de distribution existants et recommandations pour les am&eacute;liorer.</span></li>
-                                                                  <li class="m-size-13 text-align-left"><span class="m-font-size-13" style="display: initial;">Gestion des relations avec les distributeurs, r&eacute;solution de litiges et ren&eacute;gociation des accords.</span></li>
-                                                                  <li class="m-size-13 text-align-left"><span class="m-font-size-13" style="display: initial;">Veille concurrentielle pour identifier de nouvelles opportunit&eacute;s de partenariats de distribution.</span></li>
-                                                               </ul>
-                                                               <p><span style="display: initial;"><br/></span></p>
-                                                            </div>
-                                                         </div>
-                                                         <div class="u_1253326821 dmRespCol small-12 large-2 medium-2" id="1253326821">
-                                                            <div class="u_1186094114 default dmShape" id="1186094114" dmle_extension="shape" data-element-type="shape" text-position="center_center" wr="true" icon="true" surround="true" adwords="" shape-text="NA==" shape-description="" shape-image="" alt-text="" tooltip="" shape-type="shape5" show-text-on-shape="true" show-description-on-shape="true" shape-color="rgba(216, 158, 112, 1)" shape-show-shadow="false" border-color-shape="" show-background-overlay="false" overlay-color="#ffffff" image-position="xMidYMid" shape-keep-proportion="true" shape-layout="layout1" border-width-shape="0" overlay-opacity="50" link-attrs="e30=">
-                                                               <a data-link-id="shape-link-container" id="1022305550">
-                                                                  <div class="container-text container-padding center_center" id="1549353882">
-                                                                     <h3 class="shape-text" id="1494903597">4</h3>
-                                                                     <div class="shape-description" id="1240519354"></div>
-                                                                  </div>
-                                                                  <svg width="100%" height="100%" viewbox="0.00 0.00 100 100" id="1121802438">
-                                                                     <g>
-                                                                        <path d="M50,0L50,0C24.2,0,2.7,19.6,0.2,45.2L0,45v5l0,0v50h50c27.6,0,50-22.4,50-50l0,0C100,22.4,77.6,0,50,0z" style="fill:rgba(216, 158, 112, 1);"></path>
-                                                                     </g>
-                                                                  </svg>
-                                                               </a>
-                                                            </div>
-                                                         </div>
-                                                         <div class="u_1463567321 dmRespCol small-12 large-4 medium-4" id="1463567321">
-                                                            <div class="u_1557422268 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1557422268" style="transition: none 0s ease 0s; text-align: left; display: block;">
-                                                               <h5 class="m-size-22 size-28"><span class="font-size-28 m-font-size-22" style="display: initial;">Management de transition :</span></h5>
-                                                            </div>
-                                                            <div class="u_1539684751 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1539684751" style="transition: none 0s ease 0s; text-align: left; display: block;">
-                                                               <ul class="defaultList bullet">
-                                                                  <li class="m-size-13 text-align-left" style="color: rgb(0, 0, 0);"><a href="/" runtime_url="/" type="page" class="m-font-size-13" style="display: initial; text-decoration: none; color: rgb(0, 0, 0);">Gestion int&eacute;rimaire de postes cl&eacute;s au sein de l'entreprise en cas de d&eacute;part, de cong&eacute; ou de p&eacute;riode de transition.</a></li>
-                                                                  <li class="m-size-13 text-align-left" style="color: rgb(0, 0, 0);"><a href="/" runtime_url="/" type="page" class="m-font-size-13" style="display: initial; text-decoration: none; color: rgb(0, 0, 0);">Restructuration et r&eacute;organisation de d&eacute;partements ou d'&eacute;quipes pour am&eacute;liorer l'efficacit&eacute; et la performance.</a></li>
-                                                                  <li class="m-size-13 text-align-left" style="color: rgb(0, 0, 0);"><a href="/" runtime_url="/" type="page" class="m-font-size-13" style="display: initial; text-decoration: none; color: rgb(0, 0, 0);">Mise en place de mesures correctives pour r&eacute;soudre des probl&egrave;mes op&eacute;rationnels sp&eacute;cifiques.</a></li>
-                                                                  <li class="m-size-13 text-align-left" style="color: rgb(0, 0, 0);"><a href="/" runtime_url="/" type="page" class="m-font-size-13" style="display: initial; text-decoration: none; color: rgb(0, 0, 0);">Accompagnement lors de fusions, acquisitions ou autres changements organisationnels.</a></li>
-                                                               </ul>
-                                                               <p><span style="display: initial;"><br/></span></p>
-                                                            </div>
-                                                         </div>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                          <div class="u_1619189340 dmRespRow" id="1619189340">
-                                             <div class="dmRespColsWrapper" id="1285113893">
-                                                <div class="dmRespCol large-12 medium-12 small-12 u_1480598534" id="1480598534">
-                                                   <div class="u_1576361154 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1576361154" style="transition: none 0s ease 0s; text-align: left; display: block;">
-                                                      <h1 class="text-align-center" style="line-height: 1.5;"><span class="" style="color: rgb(216, 158, 112); display: initial;"><span style="color: rgb(216, 158, 112); display: initial;">Vous souhaitez &eacute;changer sur votre projet</span> 
-                                                         </span>
-                                                      </h1>
-                                                      <h1 class="text-align-center" style="line-height: 1.5;"><span class="" style="display: initial;"><span style="display: initial;">Echangez avec nos consultants en Live</span> 
-                                                         </span>
-                                                      </h1>
-                                                      <h1 class="text-align-center" style="line-height: 1.5;"><span style="display: initial;">ou</span></h1>
-                                                      <h1 class="text-align-center" style="line-height: 1.5;"><span style="color: rgb(0, 0, 0); display: initial;">prenez rendez-vous</span></h1>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="dmFooterContainer">
-                                 <div id="fcontainer" class="u_fcontainer f_hcontainer dmFooter p_hfcontainer">
-                                    <div dm:templateorder="250" class="dmFooterResp generalFooter" id="1943048428">
-                                       <div class="dmRespRow" id="1993366377">
-                                          <div class="dmRespColsWrapper" id="1875710420">
-                                             <div class="dmRespCol large-12 medium-12 small-12" id="1578725283">
-                                                <div data-element-type="html" class="dmCustomHtml" id="1738242270">
-                                                   <!-- Start of LiveChat (www.livechat.com) code --> <script>
-                                                      window.__lc = window.__lc || {};
-                                                      window.__lc.license = 15564534;
-                                                      ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
-                                                          
-                                                      
-                                                              
-                                                   </script> 
-                                                   <noscript> <a href="https://www.livechat.com/chat-with/15564534/" rel="nofollow">Chat with us</a> 
-                                                      , powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a> 
-                                                   </noscript>
-                                                   <!-- End of LiveChat code -->
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="u_1632155419 dmRespRow" style="text-align: center;" id="1632155419">
-                                          <div class="dmRespColsWrapper" id="1253858808">
-                                             <div class="u_1063824722 dmRespCol small-12 medium-6 large-6" id="1063824722">
-                                                <div class="u_1901167991 imageWidget align-center" data-widget-type="image" id="1901167991" data-element-type="image"> <a href="/" id="1067941554"><img src="https://s3.ca-central-1.amazonaws.com/logojoy/logos/123738373/noBgColor.png" id="1669146944" class="" data-inject="logo" data-dm-image-path="https://s3.ca-central-1.amazonaws.com/logojoy/logos/123738373/noBgColor.png" onerror="handleImageLoadError(this)" height="90.71875" width="338.1875"/></a> </div>
-                                             </div>
-                                             <div class="u_1924939334 dmRespCol small-12 medium-6 large-6" id="1924939334">
-                                                <div class="u_1144743968 align-center text-align-center dmSocialHub" id="1144743968" dmle_extension="social_hub" data-element-type="social_hub" wr="true" networks="" icon="true" surround="true" adwords="">
-                                                   <div class="socialHubWrapper">
-                                                      <div class="socialHubInnerDiv "> <a href="http://linkedin.com/company/global-sales-strategy/" target="_blank" dm_dont_rewrite_url="true" aria-label="linkedin" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event(&apos;socialLink&apos;, &apos;click&apos;, &apos;Linkedin&apos;)"> <span class="dmSocialLinkedin icon-linkedin oneIcon socialHubIcon style8" aria-hidden="true" data-hover-effect=""></span> 
-                                                         </a> 
-                                                         <a href="https://web.whatsapp.com/send?phone=0789881586" target="_blank" dm_dont_rewrite_url="true" aria-label="whatsapp" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event(&apos;socialLink&apos;, &apos;click&apos;, &apos;Whatsapp&apos;)"> <span class="dmSocialWhatsapp dm-social-icons-whatsapp oneIcon socialHubIcon style8" aria-hidden="true" data-hover-effect=""></span> 
-                                                         </a> 
-                                                         <a href="mailto:c.rimbert@globalsalestrategy.com" dm_dont_rewrite_url="true" aria-label="email" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event(&apos;socialLink&apos;, &apos;click&apos;, &apos;Email&apos;)"> <span class="dmSocialEmail dm-social-icons-email oneIcon socialHubIcon style8" aria-hidden="true" data-hover-effect=""></span> 
-                                                         </a> 
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                                <a data-display-type="block" class="u_1032571772 align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient backgroundOnLogoBackgroundColor" file="false" href="mailto:c.rimbert@globalsalestrategy.com" data-element-type="dButtonLinkId" id="1032571772"> <span class="iconBg" id="1820761282"> <span class="icon hasFontIcon icon-star" id="1511413215"></span> 
-                                                </span> 
-                                                <span class="text logoBackgroundColor" id="1304990593">contactez nous</span> 
-                                                </a> 
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="dmRespRow u_1531474404" id="1531474404">
-                                          <div class="dmRespColsWrapper" id="1057911084">
-                                             <div class="dmRespCol large-6 medium-6 small-12" id="1294007559">
-                                                <div class="dmNewParagraph u_1873663506" data-element-type="paragraph" data-version="5" id="1873663506" style="transition: opacity 1s ease-in-out 0s;">
-                                                   <p class="m-size-9 size-13"><span class="font-size-13 m-font-size-9" style="display: initial; color: rgb(255, 255, 255);">Copyright Global Sales Strategy 2023</span></p>
-                                                </div>
-                                             </div>
-                                             <div class="dmRespCol small-12 large-6 medium-6 empty-column" id="1790854489"></div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div id="1236746004" dmle_extension="powered_by" data-element-type="powered_by" icon="true" surround="false"></div>
-                                 </div>
-                              </div>
-                           </div>
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+     <!-- Site Metas -->
+    <title>Global Sales Strategy</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+	<script src="js/modernizr.js"></script>
+  <!-- Modernizr -->
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body id="page-top" class="politics_version">
+
+    <!-- LOADER -->
+    <div id="preloader">
+        <div id="main-ld">
+			<div id="loader"></div>
+		</div>
+    </div><!-- end loader -->
+    <!-- END LOADER -->
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+			<img class="logo img-fluid" src="images/logo.png?" alt="" />
+		</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger active" href="#home">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">À Propos de Nous</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#blog">Blog</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#team">L'equipe</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#pricing">Pricing</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contactez Nous</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+	<section id="home" class="main-banner parallaxie" style="background: url('uploads/banner-01.jpg')">
+		<div class="heading">
+			<h1>Libérez votre potentiel commercial</h1>
+			<h3 class="cd-headline clip is-full-width">
+				<span>De l'expertise en </span>
+				<span class="cd-words-wrapper">
+					<b class="is-visible">Apporteur d'affaires</b>
+					<b>Stratégie commerciale</b>
+					<b>Négociation</b>
+					<b>Management de transition</b>
+				</span>
+				<div class="btn-ber">
+					<a class="get_btn hvr-bounce-to-top" href="#">Prendre RDV</a>
+					<a class="learn_btn hvr-bounce-to-top" href="#">Savoir Plus</a>
+				</div>
+			</h3>
+		</div>
+	</section>
+
+    <div id="about" class="section wb">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="message-box">
+                        <h2>Bienvenue chez Global Sales Strategy</h2>
+                        <p>Un service de conseil en affaires réalisé avec rigueur et expertise</p>
+
+                        <a href="#" class="sim-btn hvr-bounce-to-top"><span>Contactez Nous</span></a>
+                    </div><!-- end messagebox -->
+                </div><!-- end col -->
+
+                <div class="col-md-6">
+                    <div class="right-box-pro wow fadeIn">
+                        <img src="uploads/about_04.jpg" alt="" class="img-fluid img-rounded">
+                    </div><!-- end media -->
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+    <div id="services" class="section lb">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3>Services</h3>
+                <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
+            </div><!-- end title -->
+
+            <div class="row">
+				<div class="col-md-6">
+                    <div class="services-inner-box">
+						<div class="ser-icon">
+							<i class="flaticon-seo"></i>
+						</div>
+						<h2>Apporteur d'affaires</h2>
+						<p>
+
+    Recherche active de nouvelles opportunités commerciales et identification de partenariats potentiels.
+    Présentation et promotion des produits ou services de l'entreprise à des clients potentiels.
+    Négociation et conclusion d'accords commerciaux avec les partenaires identifiés.
+    Suivi régulier avec les clients pour s'assurer de leur satisfaction et identifier de nouvelles opportunités.
+
+
+</p>
+					</div>
+                </div><!-- end col -->
+                <div class="col-md-6">
+                    <div class="services-inner-box">
+						<div class="ser-icon">
+							<i class="flaticon-development"></i>
+						</div>
+						<h2>Stratégie commerciale</h2>
+						<p>
+
+    Élaboration d'une stratégie de croissance à long terme, y compris l'identification de nouveaux marchés et de segments de clients potentiels.
+    Analyse de la concurrence et développement d'avantages concurrentiels durables.
+    Définition d'un plan d'action pour développer les ventes et augmenter la part de marché.
+    Évaluation de l'efficacité des canaux de distribution existants et proposition de solutions pour les optimiser.
+
+</p>
+					</div>
+                </div><!-- end col -->
+				<div class="col-md-6">
+                    <div class="services-inner-box">
+						<div class="ser-icon">
+							<i class="flaticon-process"></i>
+						</div>
+						<h2>Négociation</h2>
+						<p>    Élaboration de stratégies de négociation pour obtenir des conditions commerciales avantageuses avec les distributeurs.
+    Analyse des contrats de distribution existants et recommandations pour les améliorer.
+    Gestion des relations avec les distributeurs, résolution de litiges et renégociation des accords.
+    Veille concurrentielle pour identifier de nouvelles opportunités de partenariats de distribution.</p>
+					</div>
+                </div><!-- end col -->
+				<div class="col-md-6">
+                    <div class="services-inner-box">
+						<div class="ser-icon">
+							<i class="flaticon-discuss-issue"></i>
+						</div>
+						<h2>Management de transition</h2>
+						<p>
+
+    Gestion intérimaire de postes clés au sein de l'entreprise en cas de départ, de congé ou de période de transition.
+    Restructuration et réorganisation de départements ou d'équipes pour améliorer l'efficacité et la performance.
+    Mise en place de mesures correctives pour résoudre des problèmes opérationnels spécifiques.
+    Accompagnement lors de fusions, acquisitions ou autres changements organisationnels.
+
+
+</p>
+					</div>
+                </div><!-- end col -->
+
+
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+	<div id="portfolio" class="section lb">
+		<div class="container">
+			<div class="section-title text-center">
+                <h3>Portfolio</h3>
+                <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
+            </div><!-- end title -->
+
+			<div class="gallery-menu row">
+				<div class="col-md-12">
+					<div class="button-group filter-button-group text-center">
+						<button class="active" data-filter="*">All</button>
+						<button data-filter=".gal_a">Web Development</button>
+						<button data-filter=".gal_b">Creative Design</button>
+						<button data-filter=".gal_c">Graphic Design</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="gallery-list row">
+				<div class="col-md-4 col-sm-6 gallery-grid gal_a gal_b">
+					<div class="gallery-single fix">
+						<img src="uploads/gallery_img-01.jpg" class="img-fluid" alt="Image">
+						<div class="img-overlay">
+							<a href="uploads/gallery_img-01.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6 gallery-grid gal_c gal_b">
+					<div class="gallery-single fix">
+						<img src="uploads/gallery_img-02.jpg" class="img-fluid" alt="Image">
+						<div class="img-overlay">
+							<a href="uploads/gallery_img-02.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6 gallery-grid gal_a gal_c">
+					<div class="gallery-single fix">
+						<img src="uploads/gallery_img-03.jpg" class="img-fluid" alt="Image">
+						<div class="img-overlay">
+							<a href="uploads/gallery_img-03.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6 gallery-grid gal_b gal_a">
+					<div class="gallery-single fix">
+						<img src="uploads/gallery_img-04.jpg" class="img-fluid" alt="Image">
+						<div class="img-overlay">
+							<a href="uploads/gallery_img-04.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6 gallery-grid gal_a gal_c">
+					<div class="gallery-single fix">
+						<img src="uploads/gallery_img-05.jpg" class="img-fluid" alt="Image">
+						<div class="img-overlay">
+							<a href="uploads/gallery_img-05.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6 gallery-grid gal_c gal_a">
+					<div class="gallery-single fix">
+						<img src="uploads/gallery_img-06.jpg" class="img-fluid" alt="Image">
+						<div class="img-overlay">
+							<a href="uploads/gallery_img-06.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="blog" class="section lb">
+		<div class="container">
+			<div class="section-title text-center">
+                <h3>Blog</h3>
+                <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
+            </div><!-- end title -->
+
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-lg-4">
+					<div class="post-box">
+						<div class="post-thumb">
+							<img src="uploads/blog-01.jpg" class="img-fluid" alt="post-img" />
+							<div class="date">
+								<span>06</span>
+								<span>Aug</span>
+							</div>
+						</div>
+						<div class="post-info">
+							<h4>Quisque auctor lectus interdum nisl accumsan venenatis.</h4>
+							<ul>
+                                <li>by admin</li>
+                                <li>Apr 21, 2018</li>
+                                <li><a href="#"><b> Comments</b></a></li>
+                            </ul>
+							<p>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet massa sodales aliquam at eget quam. Integer ultricies et magna quis.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-lg-4">
+					<div class="post-box">
+						<div class="post-thumb">
+							<img src="uploads/blog-02.jpg" class="img-fluid" alt="post-img" />
+							<div class="date">
+								<span>06</span>
+								<span>Aug</span>
+							</div>
+						</div>
+						<div class="post-info">
+							<h4>Quisque auctor lectus interdum nisl accumsan venenatis.</h4>
+							<ul>
+                                <li>by admin</li>
+                                <li>Apr 21, 2018</li>
+                                <li><a href="#"><b> Comments</b></a></li>
+                            </ul>
+							<p>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet massa sodales aliquam at eget quam. Integer ultricies et magna quis.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-lg-4">
+					<div class="post-box">
+						<div class="post-thumb">
+							<img src="uploads/blog-03.jpg" class="img-fluid" alt="post-img" />
+							<div class="date">
+								<span>06</span>
+								<span>Aug</span>
+							</div>
+						</div>
+						<div class="post-info">
+							<h4>Quisque auctor lectus interdum nisl accumsan venenatis.</h4>
+							<ul>
+                                <li>by admin</li>
+                                <li>Apr 21, 2018</li>
+                                <li><a href="#"><b> Comments</b></a></li>
+                            </ul>
+							<p>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet massa sodales aliquam at eget quam. Integer ultricies et magna quis.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div id="team" class="section wb">
+		<div class="container">
+			<div class="section-title text-center">
+				<h3>Our Team</h3>
+				<p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
+			</div><!-- end title -->
+
+			<div class="row">
+				<div class="col-md-3 col-sm-6">
+					<div class="our-team">
+						<div class="pic">
+							<img src="uploads/img-2.jpg">
+						</div>
+						<div class="team-content">
+							<h3 class="title">Kristiana</h3>
+							<span class="post">Web Designer</span>
+							<ul class="social">
+								<li><a href="#" class="fa fa-facebook"></a></li>
+								<li><a href="#" class="fa fa-twitter"></a></li>
+								<li><a href="#" class="fa fa-google-plus"></a></li>
+								<li><a href="#" class="fa fa-skype"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-sm-6">
+					<div class="our-team">
+						<div class="pic">
+							<img src="uploads/img-4.jpg">
+						</div>
+						<div class="team-content">
+							<h3 class="title">Miranda joy</h3>
+							<span class="post">Web Designer</span>
+							<ul class="social">
+								<li><a href="#" class="fa fa-facebook"></a></li>
+								<li><a href="#" class="fa fa-twitter"></a></li>
+								<li><a href="#" class="fa fa-google-plus"></a></li>
+								<li><a href="#" class="fa fa-skype"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-sm-6">
+					<div class="our-team">
+						<div class="pic">
+							<img src="uploads/img-1.jpg">
+						</div>
+						<div class="team-content">
+							<h3 class="title">Williamson</h3>
+							<span class="post">Web Developer</span>
+							<ul class="social">
+								<li><a href="#" class="fa fa-facebook"></a></li>
+								<li><a href="#" class="fa fa-twitter"></a></li>
+								<li><a href="#" class="fa fa-google-plus"></a></li>
+								<li><a href="#" class="fa fa-skype"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-sm-6">
+					<div class="our-team">
+						<div class="pic">
+							<img src="uploads/img-3.jpg">
+						</div>
+						<div class="team-content">
+							<h3 class="title">Steve Thomas</h3>
+							<span class="post">Web Developer</span>
+							<ul class="social">
+								<li><a href="#" class="fa fa-facebook"></a></li>
+								<li><a href="#" class="fa fa-twitter"></a></li>
+								<li><a href="#" class="fa fa-google-plus"></a></li>
+								<li><a href="#" class="fa fa-skype"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="pricing" class="section lb">
+		<div class="container">
+			<div class="section-title text-center">
+                <h3>Pricing</h3>
+                <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
+            </div><!-- end title -->
+
+			<div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="pricingTable">
+                        <svg x="0" y="0" viewBox="0 0 360 220">
+                            <g>
+                                <path fill="#AF8751" d="M0.732,193.75c0,0,29.706,28.572,43.736-4.512c12.976-30.599,37.005-27.589,44.983-7.061
+                                    c8.09,20.815,22.83,41.034,48.324,27.781c21.875-11.372,46.499,4.066,49.155,5.591c6.242,3.586,28.729,7.626,38.246-14.243
+                                    s27.202-37.185,46.917-8.488c19.715,28.693,38.687,13.116,46.502,4.832c7.817-8.282,27.386-15.906,41.405,6.294V0H0.48
+                                    L0.732,193.75z"></path>
+                            </g>
+                            <text transform="matrix(1 0 0 1 69.7256 116.2686)" fill="#fff" font-size="78.4489">$10</text>
+                            <text transform="matrix(0.9566 0 0 1 197.3096 83.9121)" fill="#fff" font-size="29.0829">.99</text>
+                            <text transform="matrix(1 0 0 1 233.9629 115.5303)" fill="#fff" font-size="15.4128">/Month</text>
+                        </svg>
+                        <div class="pricing-content">
+                            <h3 class="title">Standard</h3>
+                            <ul class="pricing-content">
+                                <li><b>50GB</b> Disk Space</li>
+                                <li><b>50</b> Email Accounts</li>
+                                <li><b>50GB</b> Bandwidth</li>
+                                <li><b>10</b> Subdomains</li>
+                                <li><b>15</b> Domains</li>
+                            </ul>
+                            <a href="#" class="sim-btn hvr-bounce-to-top pricingTable-signup">Buy Now</a>
                         </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      </div>
-      </div>
-      <!--  Add full CSS and Javascript before the close tag of the body if needed -->
-      <!-- Google Fonts Include -->
-      <!-- loadCSS function -->
-      <script>
-         /**
-          * There are a few <link> tags with CSS resource in them that are preloaded in the page
-          * in each of those there is a "onload" handler which invokes the loaddCSS callback
-          * defined here.
-          * We are monitoring 3 main CSS files - the runtime, the global and the page,
-          * and once all of them are loaded we convert the <link> tag into a valid stylesheet type
-          * which then appends the styles to the page.
-          */
-         (function () {
-           let cssLinks = {};
-           function loadCssLink(link) {
-             link.onload = null;
-             link.rel = "stylesheet";
-             link.type = "text/css";
-           }
-         
-           function checkCss() {
-             if (cssLinks && cssLinks.runtime && cssLinks.global) {
-               loadCssLink(cssLinks.runtime);
-               loadCssLink(cssLinks.global);
-               cssLinks = null;
-             }
-           }
-         
-           function loadCSS(link) {
-             try {
-               var urlParams = new URLSearchParams(window.location.search);
-               var noCSS = !!urlParams.get("nocss");
-               var cssTimeout = urlParams.get("cssTimeout") || 0;
-         
-               if (noCSS) {
-                 return;
-               }
-               if (link.href.includes("d-css-runtime")) {
-                 cssLinks.runtime = link;
-                 checkCss();
-               } else if (link.id === "siteGlobalCss") {
-                 cssLinks.global = link;
-                 checkCss();
-               } else {
-                 requestIdleCallback(function () {
-                   window.setTimeout(function () {
-                     loadCssLink(link);
-                   }, parseInt(cssTimeout, 10));
-                 });
-               }
-             } catch (e) {
-               /* Never fail - this is just a tool for measurements */
-             }
-           }
-           window.loadCSS = window.loadCSS || loadCSS;
-         })();
-      </script>
-      <link rel="preload" href="https://irp.cdn-website.com/fonts/css?family=Belgrano:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Staatliches:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Indie+Flower:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Roboto:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Amiri:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Noto+Sans:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Montserrat:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Poppins:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Bebas+Neue:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Noto+Serif:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|DM+Sans:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Roboto+Slab:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Ubuntu:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Alata:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Alice:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Rock+Salt:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|DM+Serif+Text:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Cinzel:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Overlock:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Lato:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Delius:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Rubik:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Exo:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Open+Sans:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic&amp;subset=latin-ext&amp;display=swap"  as="style" fetchpriority="low" onload="loadCSS(this)" />
-      <!-- RT CSS Include d-css-runtime-desktop-one-package-structured-global-->
-      <link rel="preload" as="style" fetchpriority="low" onload="loadCSS(this)" href="https://static.cdn-website.com/mnlt/production/3513/_dm/s/rt/dist/css/d-css-runtime-desktop-one-package-structured-global.min.css" />
-      <!-- End of RT CSS Include -->
-      <link rel="preload" href="https://irp.cdn-website.com/WIDGET_CSS/production_3513/9f32497efde930488ab5b1abe2ad69cf.css" id="widgetCSS" as="style" fetchpriority="low" onload="loadCSS(this)" />
-      <!-- Support `img` size attributes -->
-      <style>img[width][height] {
-         height: auto;
-         }
-      </style>
-      <!-- Support showing sticky element on page only -->
-      <style>
-         body[data-page-alias="home"] #dm [data-show-on-page-only="home"] {
-         display: block !important;
-         }
-      </style>
-      <!-- This is populated in Ajax navigation -->
-      <style id="pageAdditionalWidgetsCss" type="text/css"></style>
-      <!-- Site CSS -->
-      <link rel="preload" href="https://irp.cdn-website.com/76082808/files/76082808_withFlex_1.min.css?v=30" id="siteGlobalCss" as="style" fetchpriority="low" onload="loadCSS(this)" />
-      <style id="customWidgetStyle" type="text/css">
-      </style>
-      <style id="innerPagesStyle" type="text/css">
-      </style>
-      <style
-         id="additionalGlobalCss" type="text/css"
-         ></style>
-      <!-- Page CSS -->
-      <link rel="preload" href="https://irp.cdn-website.com/76082808/files/76082808_home_withFlex_1.min.css?v=30" id="homeCssLink" as="style" fetchpriority="low" onload="loadCSS(this)" />
-      <style id="pagestyle" type="text/css">
-      </style>
-      <style id="pagestyleDevice" type="text/css">
-      </style>
-      <!-- Flex Sections CSS -->
-      <style id="globalFontSizeStyle" type="text/css">
-         .font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-13, .size-13, .size-13 > font { font-size: 13px !important; }.font-size-13, .size-13, .size-13 > font { font-size: 13px !important; }
-      </style>
-      <style id="pageFontSizeStyle" type="text/css"></style>
-      <!-- ========= JS Section ========= -->
-      <script>
-         var isWLR = true;
-         
-         window.customWidgetsFunctions = {};
-         window.customWidgetsStrings = {};
-         window.collections = {};
-         window.currentLanguage = "ENGLISH"
-         window.isSitePreview = false;
-      </script>
-      <script type="text/javascript">
-         var d_version = "22..73";
-         var build = "2023-06-15T10_51_23";
-         window['v' + 'ersion'] = d_version;
-         
-         function buildEditorParent() {
-             window.isMultiScreen = true;
-             window.editorParent = {};
-             window.previewParent = {};
-             window.assetsCacheQueryParam = "?version=2023-06-15T10_51_23";
-             try {
-                 var _p = window.parent;
-                 if (_p && _p.document && _p.$ && _p.$.dmfw) {
-                     window.editorParent = _p;
-                 } else if (_p.isSitePreview) {
-                     window.previewParent = _p;
-                 }
-             } catch (e) {
-         
-             }
-         }
-         
-         buildEditorParent();
-         
-         
-      </script>
-      <!-- Load jQuery -->
-      <script type="text/javascript" id='d-js-jquery'
-         src="https://static.cdn-website.com/libs/jquery/2.2.4/jquery.min.js"></script>
-      <!-- End Load jQuery -->
-      <!-- Injecting site-wide before scripts -->
-      <!-- End Injecting site-wide to the head -->
-      <script>
-         var _jquery = window.$;
-         
-         var jqueryAliases = ['$', 'jquery', 'jQuery'];
-         
-         jqueryAliases.forEach((alias) => {
-             Object.defineProperty(window, alias, {
-                 get() {
-                     return _jquery;
-                 },
-                 set() {
-                     console.warn("Trying to over-write the global jquery object!");
-                 }
-             });
-         });
-         
-      </script>
-      <script>
-         window.cookiesNotificationMarkupPreview = 'null';
-      </script>
-      <!-- HEAD RT JS Include -->
-      <script id='d-js-params'>
-         window.jQuery.migrateMute = true;
-         window.INSITE = window.INSITE || {};
-         window.INSITE.device = "desktop";
-         window.rtCommonProps = {};
-         rtCommonProps["rt.ajax.ajaxScriptsFix"] =true;
-         rtCommonProps["rt.pushnotifs.sslframe.encoded"] = 'aHR0cHM6Ly97c3ViZG9tYWlufS5wdXNoLW5vdGlmcy5jb20=';
-         rtCommonProps["runtimecollector.url"] = 'https://rtc.multiscreensite.com';
-         rtCommonProps["performance.tabletPreview.removeScroll"] = 'false';
-         rtCommonProps["inlineEditGrid.snap"] =true;
-         rtCommonProps["popup.insite.cookie.ttl"] = '0.5';
-         rtCommonProps["rt.pushnotifs.force.button"] =true;
-         rtCommonProps["google.places.key"] = 'AIzaSyBAwUOqPUB1CU31yDztoZYaUE7sPv4ktEI';
-         rtCommonProps["common.mapbox.token"] = 'pk.eyJ1IjoiZGFubnliMTIzIiwiYSI6ImNqMGljZ256dzAwMDAycXBkdWxwbDgzeXYifQ.Ck5P-0NKPVKAZ6SH98gxxw';
-         rtCommonProps["common.mapbox.js.override"] =false;
-         rtCommonProps["common.opencage.token"] = '319e14f32bcce967ba55cd263478796d';
-         rtCommonProps["common.here.appId"] = 'iYvDjIQ2quyEu0rg0hLo';
-         rtCommonProps["common.here.appCode"] = '1hcIxLJcbybmtBYTD9Z1UA';
-         rtCommonProps["isCoverage.test"] =false;
-         rtCommonProps["ecommerce.ecwid.script"] = 'https://app.multiscreenstore.com/script.js';
-         rtCommonProps["feature.flag.mappy.kml"] =false;
-         rtCommonProps["common.resources.dist.cdn"] =true;
-         rtCommonProps["common.build.dist.folder"] = 'production/3513';
-         rtCommonProps["common.resources.cdn.host"] = 'https://static.cdn-website.com';
-         rtCommonProps["common.resources.folder"] = 'https://static.cdn-website.com/mnlt/production/3513';
-         rtCommonProps["feature.flag.runtime.backgroundSlider.preload.slowly"] =true;
-         rtCommonProps["feature.flag.runtime.photoswipe.fix"] =true;
-         rtCommonProps["feature.flag.runtime.newAnimation.enabled"] =true;
-         rtCommonProps["feature.flag.runtime.newAnimation.respectCssAnimationProps.enabled"] =true;
-         rtCommonProps["feature.flag.runtime.newAnimation.jitAnimation.enabled"] =true;
-         rtCommonProps["feature.flag.sites.google.analytics.gtag"] =true;
-         rtCommonProps["feature.flag.runOnReadyNewTask"] =true;
-         rtCommonProps["feature.flag.addTargetBlankToExternalLinks"] =true;
-         rtCommonProps["unsuspendEcwidStoreOnRuntime.enabled"] =true;
-         rtCommonProps["keyboard.navigation.enabled"] =true;
-         rtCommonProps["runtime.navigationWidget.menu.clipPath"] =true;
-         rtCommonProps["scripts.widgetCount.enabled"] =true;
-         rtCommonProps["maps.cookiebot.enabled"] =true;
-         
-         
-         rtCommonProps['common.mapsProvider'] = 'mapbox';
-         rtCommonProps['common.mapsProvider.version'] = '0.52.0';
-         rtCommonProps['common.geocodeProvider'] = 'here';
-         rtCommonProps['common.map.defaults.radiusSize'] = '1500';
-         rtCommonProps['common.map.defaults.radiusBg'] = 'rgba(255, 255, 255, 0.4)';
-         rtCommonProps['common.map.defaults.strokeColor'] = 'rgba(255, 255, 255, 1)';
-         rtCommonProps['common.map.defaults.strokeSize'] = '2';
-         rtCommonProps['server.for.resources'] = '';
-         rtCommonProps['feature.flag.lazy.widgets'] = true;
-         rtCommonProps['feature.flag.single.wow'] = false;
-         rtCommonProps['feature.flag.disallowPopupsInEditor'] = true;
-         rtCommonProps['feature.flag.mark.anchors'] = true;
-         rtCommonProps['captcha.public.key'] = '6LffcBsUAAAAAMU-MYacU-6QHY4iDtUEYv_Ppwlz';
-         rtCommonProps['captcha.invisible.public.key'] = '6LeiWB8UAAAAAHYnVJM7_-7ap6bXCUNGiv7bBPME';
-         rtCommonProps["images.sizes.small"] =160;
-         rtCommonProps["images.sizes.mobile"] =640;
-         rtCommonProps["images.sizes.tablet"] =1280;
-         rtCommonProps["images.sizes.desktop"] =1920;
-         rtCommonProps["modules.resources.cdn"] =true;
-         rtCommonProps["import.images.storage.imageCDN"] = 'https://lirp.cdn-website.com/';
-         rtCommonProps["ecom.ecwid.categoryPage.modifyLinks"] = true;
-         rtCommonProps["ecom.ecwidNewUrlStructure.enabled"] = false;
-         rtCommonProps["ecom.ecwid.fixFacebookLink"] = true;
-         rtCommonProps["facebook.api.version"] = '7.0';
-         rtCommonProps["runtime.save.restore.function.bind"] =true;
-         rtCommonProps["feature.flag.photo.gallery.exact.size"] =false;
-         rtCommonProps["new.store.fix.ecwid.back.bug"] =true;
-         rtCommonProps["new.store.accountPage.ecwid.signIn.fix"] =true;
-         rtCommonProps["fix.ecwid.sign.in.page.with.return.url"] =true;
-         rtCommonProps["site.runtime.video.background.ssr"] =true;
-         rtCommonProps["geocode.search.localize"] =false;
-         rtCommonProps["facebook.runtime.widgets.upgrade"] =true;
-         rtCommonProps["feature.flag.runtime.inp.threshold"] =150;
-         rtCommonProps["feature.flag.runtime.newAnimation.asyncInit.setTimeout.enabled"] =false;
-         rtCommonProps["feature.flag.performance.logs"] =true;
-         rtCommonProps["site.contact.form.fix.for.attribute"] =true;
-         rtCommonProps["site.widget.form.captcha.type"] = 'g_recaptcha';
-         rtCommonProps["friendly.captcha.site.key"] = 'FCMGSQG9GVNMFS8K';
-         rtCommonProps["contact.form.date.format.enabled"] = true;
-         rtCommonProps["platform.monolith.personalization.userVisitsCondition.inClient.enabled"] = true;
-         rtCommonProps["ecom.widgets.menu.categories.toggles.enabled"] =  true;
-         rtCommonProps["filestack.uploadToTempBucket.enabled"] = true;
-         rtCommonProps["platform.monolith.loginBar.getUserLoggedIn.enabled"] = true;
-      </script>
-      <script src="https://static.cdn-website.com/mnlt/production/3513/_dm/s/rt/dist/scripts/d-js-one-runtime-unified-desktop.min.js"  id="d-js-core"></script>
-      <!-- End of HEAD RT JS Include -->
-      <script>jQuery.DM.updateWidthAndHeight();
-         $(window).resize(function () {
-             
-         });
-         $(window).bind("orientationchange", function (e) {
-             $.layoutManager.initLayout();
-             
-         });
-         $(document).resize(function () {
-             
-         });
-      </script>
-      <script type="text/javascript" id="d_track_campaign">
-         (function() {
-          	var campaign = (/utm_campaign=([^&]*)/).exec(window.location.search);
-         
-          	if (campaign && campaign != null && campaign.length > 1) {
-          		campaign = campaign[1];
-          		document.cookie = "_dm_rt_campaign=" + campaign + ";expires=" + new Date().getTime() + 24*60*60*1000 + ";domain=" + window.location.hostname + ";path=/";
-          	}
-         }());
-      </script>
-      <script type="text/javascript" >
-         var _dm_gaq = {};
-         var _gaq = _gaq || [];
-         var _dm_insite = [];
-      </script>
-      </script>
-      <script type="text/javascript" id="d_track_sp">
-         ;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
-         p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
-         };p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
-         n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//d32hwlnfiv2gyn.cloudfront.net/sp-2.0.0-dm-0.1.min.js","snowplow"));
-         window.dmsnowplow  = window.snowplow;
-         
-         dmsnowplow('newTracker', 'cf', 'd32hwlnfiv2gyn.cloudfront.net', { // Initialise a tracker
-           appId: '76082808'
-         });
-         
-         dmsnowplow('trackPageView')
-         $.each(_dm_insite, function(idx, rule) {
-         	//('trackStructEvent', 'category','action','label','property','value');
-         			// Specifically in popup only the client knows if it is shown or not so we don't always want to track its impression here
-         	        // the tracking is in popup.js
-         			if (rule.actionName !== "popup") {
-                         dmsnowplow('trackStructEvent', 'insite', 'impression', rule.ruleType, rule.ruleId);
-                     }
-          			$(document).ready(function(){
-          				$.DM.events.trigger('event-ruleTriggered', {value: rule})}
-          			);
-          		});
-      </script>
-      <div style="display:none;" id="P6iryBW0Wu"></div>
-      <!-- photoswipe markup -->
-      <!-- Root element of PhotoSwipe. Must have class pswp. -->
-      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-         <!-- Background of PhotoSwipe. 
-            It's a separate element as animating opacity is faster than rgba(). -->
-         <div class="pswp__bg"></div>
-         <!-- Slides wrapper with overflow:hidden. -->
-         <div class="pswp__scroll-wrap">
-            <!-- Container that holds slides. 
-               PhotoSwipe keeps only 3 of them in the DOM to save memory.
-               Don't modify these 3 pswp__item elements, data is added later on. -->
-            <div class="pswp__container">
-               <div class="pswp__item"></div>
-               <div class="pswp__item"></div>
-               <div class="pswp__item"></div>
-            </div>
-            <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-            <div class="pswp__ui pswp__ui--hidden">
-               <div class="pswp__top-bar">
-                  <!--  Controls are self-explanatory. Order can be changed. -->
-                  <div class="pswp__counter"></div>
-                  <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                  <button class="pswp__button pswp__button--share" title="Share"></button>
-                  <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                  <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                  <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                  <!-- element will get class pswp__preloader--active when preloader is running -->
-                  <div class="pswp__preloader">
-                     <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                           <div class="pswp__preloader__donut"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="pricingTable blue">
+                        <svg x="0" y="0" viewBox="0 0 360 220">
+                            <g>
+                                <path fill="#AF8751" d="M0.732,193.75c0,0,29.706,28.572,43.736-4.512c12.976-30.599,37.005-27.589,44.983-7.061
+                                    c8.09,20.815,22.83,41.034,48.324,27.781c21.875-11.372,46.499,4.066,49.155,5.591c6.242,3.586,28.729,7.626,38.246-14.243
+                                    s27.202-37.185,46.917-8.488c19.715,28.693,38.687,13.116,46.502,4.832c7.817-8.282,27.386-15.906,41.405,6.294V0H0.48
+                                    L0.732,193.75z"></path>
+                            </g>
+                            <text transform="matrix(1 0 0 1 69.7256 116.2686)" fill="#fff" font-size="78.4489">$20</text>
+                            <text transform="matrix(0.9566 0 0 1 197.3096 83.9121)" fill="#fff" font-size="29.0829">.99</text>
+                            <text transform="matrix(1 0 0 1 233.9629 115.5303)" fill="#fff" font-size="15.4128">/Month</text>
+                        </svg>
+                        <div class="pricing-content">
+                            <h3 class="title">Business</h3>
+                            <ul class="pricing-content">
+                                <li><b>60GB</b> Disk Space</li>
+                                <li><b>60</b> Email Accounts</li>
+                                <li><b>60GB</b> Bandwidth</li>
+                                <li><b>15</b> Subdomains</li>
+                                <li><b>20</b> Domains</li>
+                            </ul>
+                            <a href="#" class="sim-btn hvr-bounce-to-top pricingTable-signup">Buy Now</a>
                         </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                  <div class="pswp__share-tooltip"></div>
-               </div>
-               <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-               </button>
-               <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-               </button>
-               <div class="pswp__caption">
-                  <div class="pswp__caption__center"></div>
-               </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="pricingTable red">
+                        <svg x="0" y="0" viewBox="0 0 360 220">
+                            <g>
+                                <path fill="#AF8751" d="M0.732,193.75c0,0,29.706,28.572,43.736-4.512c12.976-30.599,37.005-27.589,44.983-7.061
+                                    c8.09,20.815,22.83,41.034,48.324,27.781c21.875-11.372,46.499,4.066,49.155,5.591c6.242,3.586,28.729,7.626,38.246-14.243
+                                    s27.202-37.185,46.917-8.488c19.715,28.693,38.687,13.116,46.502,4.832c7.817-8.282,27.386-15.906,41.405,6.294V0H0.48
+                                    L0.732,193.75z"></path>
+                            </g>
+                            <text transform="matrix(1 0 0 1 69.7256 116.2686)" fill="#fff" font-size="78.4489">$30</text>
+                            <text transform="matrix(0.9566 0 0 1 197.3096 83.9121)" fill="#fff" font-size="29.0829">.99</text>
+                            <text transform="matrix(1 0 0 1 233.9629 115.5303)" fill="#fff" font-size="15.4128">/Month</text>
+                        </svg>
+                        <div class="pricing-content">
+                            <h3 class="title">Premium</h3>
+                            <ul class="pricing-content">
+                                <li><b>70GB</b> Disk Space</li>
+                                <li><b>70</b> Email Accounts</li>
+                                <li><b>70GB</b> Bandwidth</li>
+                                <li><b>20</b> Subdomains</li>
+                                <li><b>25</b> Domains</li>
+                            </ul>
+                            <a href="#" class="sim-btn hvr-bounce-to-top pricingTable-signup">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-      <div id="fb-root"
-         data-locale="en"></div>
-      <!-- Alias: 76082808 -->
-      <div class="dmPopupMask" id="dmPopupMask"></div>
-      <div id="dmPopup" class="dmPopup">
-         <div class="dmPopupCloseWrapper">
-            <div class="dmPopupClose dm-common-icons-close oneIcon" onclick="dmHidePopup(event);"></div>
-         </div>
-         <div class="dmPopupTitle"> <span></span> Share by:</div>
-         <div class="data"></div>
-      </div>
-      <script id="d_track_personalization">
-         // Collects client data and updates cookies used by smart sites
-         var expireDays = 365,visitLength = 30 * 60000;
-         $.setCookie("dm_timezone_offset", (new Date()).getTimezoneOffset(), expireDays);
-         function setSmartSiteCookies() {
-         	setSmartSiteCookiesInternal("dm_this_page_view","dm_last_page_view","dm_total_visits","dm_last_visit");
-         }
-         $.DM.events.on("afterAjax", setSmartSiteCookies);
-         setSmartSiteCookies();
-      </script>
-      <script type="text/javascript">
-         Parameters.NavigationAreaParams.MoreButtonText = 'MORE';
-         
-         Parameters.NavigationAreaParams.LessButtonText = 'LESS';
-         Parameters.HomeLinkText = 'Home';
-      </script>
-      <script>
-         jQuery(window).on('load', function () {
-             try {
-                 jQuery.DM.updateIOSHeight();
-             } catch (e) {
-             }
-         });
-      </script>
-      <script>
-         dmAPI.loadScript(
-             window.rtCommonProps['common.resources.cdn.host'] + '/libs/lozad/1.15.0/lozad.min.js',
-             function () {
-                 dmAPI.runOnReady('lozadInit', function () {
-                     window.document.querySelectorAll('img.lazy').forEach(function (img) {
-                         img.addEventListener('load', function (event) {
-                             var img = event.target;
-                             img.style.filter = 'blur(0)';
-                             setTimeout(function () {
-                                 $(img).closest('.imageWidget').addClass('lazyLoaded');
-                             }, 250)
-                         });
-                     });
-                     lozad('.lazy', {
-                         threshold: 0.1,
-                         loaded: function (element) {
-                             if (element.getAttribute('data-background-image')) {
-                                 element.style.setProperty(
-                                     'background-image',
-                                     "url('" + element.getAttribute('data-background-image') + "')",
-                                     "important"
-                                 );
-                             }
-                         }
-                     }).observe();
-                 });
-             }
-         );
-      </script>
-      <!--  End Script tags -->
-      <!--  Site Wide Html Markup -->
-      <!--  Site Wide Html Markup -->
-   </body>
+
+		</div>
+	</div>
+
+    <div id="contact" class="section db">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3>Contactez Nous</h3>
+                <p>Vous souhaitez échanger sur votre projet</p>
+                <p>Echangez avec nos consultants en Live ou prenez rendez-vous</p>
+            </div><!-- end title -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="contact_form">
+                        <div id="message"></div>
+                        <form id="contactForm" name="sentMessage" novalidate="novalidate">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<input class="form-control" id="name" type="text" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name.">
+										<p class="help-block text-danger"></p>
+									</div>
+									<div class="form-group">
+										<input class="form-control" id="email" type="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email address.">
+										<p class="help-block text-danger"></p>
+									</div>
+									<div class="form-group">
+										<input class="form-control" id="phone" type="tel" placeholder="Your Phone" required="required" data-validation-required-message="Please enter your phone number.">
+										<p class="help-block text-danger"></p>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<textarea class="form-control" id="message" placeholder="Your Message" required="required" data-validation-required-message="Please enter a message."></textarea>
+										<p class="help-block text-danger"></p>
+									</div>
+								</div>
+								<div class="clearfix"></div>
+								<div class="col-lg-12 text-center">
+									<div id="success"></div>
+									<button id="sendMessageButton" class="sim-btn hvr-bounce-to-top" type="submit">Send Message</button>
+								</div>
+							</div>
+						</form>
+                    </div>
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+    <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+				<a href="#"><img class="logo" src="images/logo.png?" alt="" /></a>
+                <div class="footer-center">
+                    <p class="footer-links">
+                        <a class="js-scroll-trigger" href="#home">Home</a>
+                        <a class="js-scroll-trigger" href="#blog">Blog</a>
+                        <a class="js-scroll-trigger" href="#pricing">Pricing</a>
+                        <a class="js-scroll-trigger" href="#about">About</a>
+                        <a class="js-scroll-trigger" href="#faq">Faq</a>
+                        <a class="js-scroll-trigger" href="#contact">Contact</a>
+                    </p>
+                    <p class="footer-company-name">&copy; Global Sales Strategy 2023</p>
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+
+    <!-- ALL JS FILES -->
+    <script src="js/all.js"></script>
+	<!-- Camera Slider -->
+	<script src="js/jquery.mobile.customized.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/parallaxie.js"></script>
+	<script src="js/headline.js"></script>
+	<!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/custom.js"></script>
+    <script src="js/jquery.vide.js"></script>
+    <!-- Start of LiveChat (www.livechat.com) code -->
+    <script>
+     window.__lc = window.__lc || {};
+    window.__lc.license = 15564534;
+    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+    </script>
+    <noscript>
+     <a href="https://www.livechat.com/chat-with/15564534/" rel="nofollow">
+      Chat with us
+     </a>
+     , powered by
+     <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">
+      LiveChat
+     </a>
+    </noscript>
+    <!-- End of LiveChat code -->
+</body>
 </html>
