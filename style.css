@@ -338,7 +338,7 @@ a img.aligncenter {
     z-index: -1;
 }
 .navbar-dark .navbar-nav .nav-link.active{
-	color: #AF8751;
+	color: #FD7B33;
 }
 .navbar-dark .navbar-nav .nav-link.active::after {
 	width: 100%;
@@ -348,11 +348,11 @@ a img.aligncenter {
 
 
 #mainNav.navbar-shrink .navbar-nav .nav-link{
-	color: #AF8751;
+	color: #FD7B33;
 }
 
 #mainNav.navbar-shrink .navbar-nav .nav-link::after{
-	background: #AF8751;
+	background: #FD7B33;
 }
 
 #mainNav.navbar-shrink .navbar-nav .nav-link.active{
@@ -360,7 +360,7 @@ a img.aligncenter {
 }
 
 #mainNav.navbar-shrink .navbar-brand img{
-	max-width: 130px;
+	max-width: 13em;
 }
 
 
@@ -477,7 +477,7 @@ xclip
 	animation: fadeInDown 700ms;
 	-webkit-backface-visibility: hidden;
 	border-radius: 0px;
-	background: rgba(255, 255, 255) none repeat;
+	background: rgba(83, 83, 83) none repeat;
 	box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
@@ -714,7 +714,7 @@ xclip
 }
 
 .services-inner-box::after{
-	background: #AF8751;
+	background: #FD7B33;
 	width: 0px;
 	height: 0px;
 	content: "";
@@ -803,7 +803,7 @@ xclip
     left: 0;
     right: 0;
     bottom: 0;
-    background: #AF8751;
+    background: #FD7B33;
     -webkit-transform: scaleY(0);
     transform: scaleY(0);
     -webkit-transform-origin: 50% 100%;
@@ -1575,7 +1575,7 @@ hr.invis1 {
 }
 
 .filter-button-group button.active{
-	background: #AF8751;
+	background: #FD7B33;
 	color: #fff;
 	box-shadow: 2px 20px 45px 5px rgba(0,0,0,.2);
 	border-radius: 100px 100px 0px 100px;
@@ -1642,7 +1642,7 @@ hr.invis1 {
 	position: absolute;
 	bottom: 5px;
 	right: 5px;
-	background: #AF8751;
+	background: #FD7B33;
 	color: #fff;
 	padding: 10px 15px;
 	text-align: center;
@@ -1719,7 +1719,7 @@ hr.invis1 {
 }
 .our-team .pic{
     border-top: none;
-    border-bottom: 5px solid #AF8751;
+    border-bottom: 5px solid #FD7B33;
     border-radius: 50% 50% 0 50%;
     overflow: hidden;
     transition: all 0.5s ease 0s;
@@ -1737,7 +1737,7 @@ hr.invis1 {
 .our-team .title{
     font-size: 22px;
     font-weight: 700;
-    color: #AF8751;
+    color: #FD7B33;
     text-transform: uppercase;
     margin: 0 0 5px 0;
 }
@@ -1760,10 +1760,10 @@ hr.invis1 {
     height: 35px;
     line-height: 35px;
     border-radius: 50%;
-    border: 1px solid #AF8751;
+    border: 1px solid #FD7B33;
     background: #fff;
     font-size: 17px;
-    color: #AF8751;
+    color: #FD7B33;
     text-align: center;
     transition: all 0.5s ease 0s;
 }
@@ -1800,7 +1800,7 @@ hr.invis1 {
 .pricingTable .title{
     font-size: 35px;
     font-weight: 600;
-    color: #AF8751;
+    color: #FD7B33;
     text-transform: uppercase;
     margin: 0 0 10px 0;
 }
@@ -1827,27 +1827,27 @@ hr.invis1 {
     position: relative;
     transition: all 0.3s ease 0s;
 }
-.pricingTable:hover .pricingTable-signup{ box-shadow: 0 0 10px #AF8751; }
+.pricingTable:hover .pricingTable-signup{ box-shadow: 0 0 10px #FD7B33; }
 .pricingTable .pricingTable-signup:hover{
     color: #ffffff;
     background: #fff;
-    box-shadow: 0 0 10px #AF8751, 0 0 10px #1c142b inset;
+    box-shadow: 0 0 10px #FD7B33, 0 0 10px #1c142b inset;
 }
-.pricingTable.blue .title{ color: #AF8751; }
+.pricingTable.blue .title{ color: #FD7B33; }
 .pricingTable.blue .pricingTable-signup{ background: #333333; }
-.pricingTable.blue:hover .pricingTable-signup{ box-shadow: 0 0 10px #AF8751; }
+.pricingTable.blue:hover .pricingTable-signup{ box-shadow: 0 0 10px #FD7B33; }
 .pricingTable.blue .pricingTable-signup:hover{
     color: #ffffff;
     background: #fff;
-    box-shadow:0 0 10px #AF8751, 0 0 10px #1c142b inset;
+    box-shadow:0 0 10px #FD7B33, 0 0 10px #1c142b inset;
 }
-.pricingTable.red .title{ color: #AF8751; }
+.pricingTable.red .title{ color: #FD7B33; }
 .pricingTable.red .pricingTable-signup{ background: #333333; }
-.pricingTable.red:hover .pricingTable-signup{ box-shadow: 0 0 10px #AF8751; }
+.pricingTable.red:hover .pricingTable-signup{ box-shadow: 0 0 10px #FD7B33; }
 .pricingTable.red .pricingTable-signup:hover{
     color: #ffffff;
     background: #fff;
-    box-shadow:0 0 10px #AF8751, 0 0 10px #1c142b inset;
+    box-shadow:0 0 10px #FD7B33, 0 0 10px #1c142b inset;
 }
 @media only screen and (max-width: 990px){
     .pricingTable{ margin-bottom: 30px; }
@@ -2621,5 +2621,5 @@ select.mobile-device {
     GSS LOGO
 -------------------------------------------------------------------*/
 img.logo {
-  max-width: 220px;
+  max-width: 15em;
 }
