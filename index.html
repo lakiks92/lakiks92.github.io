@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <!-- Basic -->
     <meta charset="utf-8" />
@@ -17,6 +17,11 @@
     <!-- Site Icons -->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+
+    <!-- Languages -->
+    <link rel="alternate" href="https://globalsalestrategy.com" hreflang="fr" />
+    <link rel="alternate" href="https://globalsalestrategy.com/?lang=en" hreflang="en" />
+    <link rel="alternate" href="https://globalsalestrategy.com" hreflang="x-default" />
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -58,7 +63,8 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger active" href="#home">Accueil</a>
+              <a class="nav-link js-scroll-trigger active" lang="fr" href="#home">Accueil</a>
+              <a class="nav-link js-scroll-trigger active" lang="en" href="#home">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">À Propos de Nous</a>
@@ -69,6 +75,8 @@
 			      <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">Contactez Nous</a>
             </li>
+            <li><a href="?lang=en">EN</a></li>
+            <li><a href="?lang=fr">FR</a></li>
           </ul>
         </div>
       </div>
@@ -472,7 +480,6 @@
       LiveChat
       </a>
     </noscript>
-
 
 </body>
 </html>

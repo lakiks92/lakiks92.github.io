@@ -2623,3 +2623,11 @@ select.mobile-device {
 img.logo {
   max-width: 9em;
 }
+
+/*------------------
+  MULTI LANGUAGE
+  ------------------*/
+[lang="en"] {
+}
+[lang="fr"] {
+}

